@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useState } from "react";
+import Navbar from "../components/Navbar";
 
-function InsideLayout() {
+export default function InsideLayout(props) {
   return (
-    <div>InsideLayout</div>
-  )
+    <>
+      <div>
+        <Navbar />
+        <div>{props.children}</div>
+      </div>
+    </>
+  );
 }
-
-export default InsideLayout
