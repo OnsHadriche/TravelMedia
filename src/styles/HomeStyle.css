@@ -1,0 +1,14 @@
+body{
+    overflow-x: hidden;
+}
+.bg-home{
+    height: 100vh;
+    width: 100vw;
+    background-image: url('../images/bg-home.jpg');
+    background-size: cover;
+    background-position: center;
+ 
+}
+.bg-home .text{
+   
+}

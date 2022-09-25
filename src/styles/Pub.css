@@ -1,0 +1,59 @@
+@font-face {
+    font-family: "JosefinSans-VariableFont_wght";
+    src: url("../fonts/JosefinSans-VariableFont_wght.ttf");
+    font-weight: normal;
+    font-size: 20px;
+  }
+  @font-face {
+    font-family: "VintageKing";
+    src: url("../fonts/VintageKing.ttf");
+    font-weight: normal;
+    font-size: 20px;
+  }
+  .body-container{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 65%;
+    background-color: #e3f2fd88;
+    -webkit-backdrop-filter: blur();
+    backdrop-filter: blur();
+    border-radius: 20px;
+
+  }
+  .container-pub-title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 10px;
+  }
+ .container-pub-title h1 {
+    text-align: center;
+    /* font-size: 3rem; */
+    color: rgb(33, 40, 46);
+    font-weight: bolder;
+    font-family: "JosefinSans-VariableFont_wght";
+  }
+  .container-pub-title h4{
+    margin: -2px 0 50px 0;
+    color: #1a237e;
+    /* font-size: 1.5rem; */
+    font-weight: 600;
+  }
+  .container-pub-title .logo{
+    font-family: "VintageKing";
+    color: #d81d27;
+    font-weight: 500;
+  } 
+
+  @media screen and (max-width:991){
+    .body-container{
+      height: 50%;
+    }
+    .container-pub-title h1{
+      font-size: 18px!important;
+    }
+  }
