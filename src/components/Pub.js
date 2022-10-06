@@ -12,7 +12,7 @@ function Pub() {
         <h4>Enjoy and discover</h4>
       </div>
 
-      <SearchAndFilter />
+      <SearchAndFilter  />
     </div>
   );
 }

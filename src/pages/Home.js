@@ -1,20 +1,42 @@
 import React from "react";
-import Navbar from "../components/Navbar";
+import { Container } from "react-bootstrap";
+
+import CardDestination from "../components/CardDestination";
+import Service from "../components/carteService";
 import Pub from "../components/Pub";
+import footerHome from "../components/footerHome";
 import "../styles/HomeStyle.css";
 
 function Home() {
   return (
     <div>
-      <div className="bg-home">
-        <Navbar />
-        <div className="mt-5 mt-5" style={{height:"100%"}}>
-          <Pub />
+      <div className=" body-home">
+        <div className="bg-home ">
+          <Container style={{ height: "90%" }}>
+            <Pub />
+          </Container>
         </div>
+        <Container className="text-service mt-5">
+          <h2 className="text-center title-destination">Our services</h2>
+          <Service />
+        </Container>
+        <div className="mt-5 bg-cards-destination">
+          <h2 className="text-center title-destination">
+            Incredible destination
+          </h2>
+          <div className="mb-5">
+            <CardDestination />
+          </div>
+        </div>
+        <Container className="mt-5">
+          <h2 className="text-center title-destination">Top Hotels </h2>
+        </Container>
+        <Container className="mt-5">
+          <h2 className="text-center title-destination">Popular Agences </h2>
+        </Container>
+    
       </div>
-      <div className="text container">
-        
-      </div>
+      <footerHome/>
     </div>
   );
 }
