@@ -1,12 +1,12 @@
 .swiper {
-    width: 100%;
+    width: 1000px;
     padding-top: 50px;
     padding-bottom: 50px;
  }
  .swiper-slide {
   background-position: center;
   background-size: cover;
-  width: 50rem!important;
+  width: 20rem!important;
   height: 20rem!important;
 }
 .swiper-slide img {
@@ -28,7 +28,7 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  background-color: rgba(43, 44, 46, 0.267);
+  background-color: rgba(43, 44, 46, 0.74);
   transition: 500ms all ease;
   -webkit-backdrop-filter: blur(1px);
   backdrop-filter: blur(1px);
@@ -57,7 +57,7 @@
   margin-bottom: 20px;
 }
 .btn-card:hover {
-  background-color: rgba(175, 49, 49, 0.8) !important ;
+  background-color: rgba(175, 49, 49, 0.9) !important ;
 }
 
 
