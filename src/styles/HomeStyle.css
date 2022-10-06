@@ -37,14 +37,21 @@ body {
   margin: auto;
 }
 .bg-cards-destination {
-  background-color: rgb(241, 240, 237);
-  height: 85vh;
+  background-color: #f4f4f4;
+  height: 88vh;
   width: 100vw;
   box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
 }
-.title-destination {
-  margin: 1rem 0 1rem 0;
+.title-service {
+  margin-top: 1rem ;
   font-family: "JosefinSans-VariableFont_wght";
+}
+.title-destination {
+  color: #9c2b37 ;
+  margin: 3rem 0 1rem 0;
+  font-size: 2.5rem;
+  font-family: "JosefinSans-VariableFont_wght";
+  font-weight: 800;
 }
 @media only screen and (max-width) {
 }

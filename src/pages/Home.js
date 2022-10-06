@@ -6,6 +6,7 @@ import Service from "../components/carteService";
 import Pub from "../components/Pub";
 import footerHome from "../components/footerHome";
 import "../styles/HomeStyle.css";
+import RecipeReviewCard from "../components/CardHotel";
 
 function Home() {
   return (
@@ -16,8 +17,8 @@ function Home() {
             <Pub />
           </Container>
         </div>
-        <Container className="text-service mt-5">
-          <h2 className="text-center title-destination">Our services</h2>
+        <Container className="text-service m-5">
+          <h2 className="text-center title-service">Our services</h2>
           <Service />
         </Container>
         <div className="mt-5 bg-cards-destination">
@@ -30,13 +31,17 @@ function Home() {
         </div>
         <Container className="mt-5">
           <h2 className="text-center title-destination">Top Hotels </h2>
+          <div>
+            <RecipeReviewCard />
+          </div>
         </Container>
         <Container className="mt-5">
           <h2 className="text-center title-destination">Popular Agences </h2>
+          <div>
+            
+          </div>
         </Container>
-    
       </div>
-      <footerHome/>
     </div>
   );
 }
