@@ -1,0 +1,56 @@
+.modal-dialog{
+    background-color: rgba(88, 83, 83, 0.541);
+    position: relative;
+    margin-top: 10%;
+    z-index: 100001;
+}
+.btn-login{
+    margin-top: 10px;
+    width: 100%;
+    border-radius:20px ;
+}
+.btn-signin{
+    width: 100%;
+    border-radius:20px ;
+    background-color: rgb(235, 181, 181)!important;
+    color: black;
+}
+.social-media{
+    margin: 20px 0px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 30px;
+}
+.social-media .facebook{
+    color:#0d8af0;
+}
+.social-media .twitter{
+    color:#1da1f2;
+}
+.social-media .gmail{
+    color:#BB001B;
+}
+hr{
+    
+    text-align: center;
+    color: #333;
+    overflow: visible;
+    height: 5px;
+}
+hr::after{
+    content: 'or';
+    font-size: 15px;
+    background-color: white;
+    position: relative;
+    top: -14px;
+    padding: 5px 8px;
+}
+.modal-header{
+
+    justify-content: center!important;
+    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
