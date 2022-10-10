@@ -42,3 +42,20 @@
   }
  
 }
+@media all and (max-width:280px){
+  .search-bar{
+    max-width: 190px;
+  }
+  .search-bar .search{
+    max-width: 190px;
+    font-size: 12px;
+    padding: 15px 10px;
+  }
+  .search-bar button{
+    font-size: 15px;
+    width: 35px;
+    height: 35px;
+    margin-left: -25px;
+  }
+ 
+}

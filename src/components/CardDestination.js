@@ -35,27 +35,46 @@ function CardDestination() {
   const [show, setShow] = useState(-1);
 
   return (
+
     <Swiper
     effect={"coverflow"}
     grabCursor={true}
     centeredSlides={true}
     slidesPerView={"auto"}
+    initialSlide = {3}
     coverflowEffect={{
-      rotate: 50,
+      rotate: 30,
       stretch: 0,
       depth: 100,
       modifier: 1,
       slideShadows: true,
+    
     }}
+   
     pagination={true}
     // autoplay={false}
+    // breakpoints={{
+    //   966:{
+    //     width:800,
+    
+    //   },
+    //   798: {
+    //     width: 700,
+      
+    //   },
+    //   640:{
+    //     width:340,
+    //     slidesPerView:1
+    //   },
+    // }}
     modules={[EffectCoverflow, Pagination]}
     className="mySwiper"
   >
       {ImageTable.map((item, key) => (
-        <SwiperSlide>
+        <SwiperSlide >
           <div
             style={{ width: "100%", height: "20rem" }}
+            className="size-swiper"
             onMouseOver={() => setShow(key)}
             onMouseOut={() => setShow(-1)}
         

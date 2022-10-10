@@ -53,5 +53,30 @@ body {
   font-family: "JosefinSans-VariableFont_wght";
   font-weight: 800;
 }
-@media only screen and (max-width) {
+@media screen and (max-width: 585px) {
+  .title-destination{
+   font-size: 2rem;
+  }
+  .bg-cards-destination{
+    height: 72vh;
+  }
+
+}
+@media screen and (max-width: 375px) {
+  .title-destination{
+   font-size: 2rem;
+  }
+  .bg-cards-destination{
+    height: 80vh;
+  }
+
+}
+@media screen and (max-width: 280px) {
+  .title-destination{
+   font-size: 1.5rem;
+  }
+  .bg-cards-destination{
+    height: 85vh;
+  }
+
 }

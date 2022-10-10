@@ -59,5 +59,41 @@
 .btn-card:hover {
   background-color: rgba(175, 49, 49, 0.9) !important ;
 }
+@media screen and (max-width: 986px) {
+  .swiper {
+    width: 800px;
+  }
+ 
+}
 
+@media screen and (max-width: 798px) {
+  .swiper {
+    width: 750px;
+  }
+
+}
+@media screen and (max-width: 740px) {
+  .swiper {
+    width: 700px;
+  }
+
+}
+@media screen and (max-width: 699px) {
+  .swiper {
+    width: 600px;
+  }
+
+}
+@media screen and (max-width: 585px) {
+  .swiper {
+    width: 390px;
+  }
+
+}
+@media screen and (max-width: 280px) {
+  .swiper {
+    width: 250px;
+  }
+
+}
 
