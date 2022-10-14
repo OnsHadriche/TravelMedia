@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { Link } from "react-router-dom";
 import { BsFacebook, BsTwitter } from "react-icons/bs";
-import { SiGmail } from "react-icons/si";
+
 //Styling ModalLogin
 import "../styles/ModalLoginStyle.css";
 import "../styles/StyleCustome.scss";
@@ -20,14 +20,15 @@ function Login({ show, onHide }) {
       >
         <Modal.Header>
           <Modal.Title className="justify-content-center">
-            <h3>Sign Up</h3>
+            <h3>Log in</h3>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <div className="social-media">
             <BsFacebook className="facebook" />
             <BsTwitter className="twitter" />
-            <SiGmail className="gmail" />
+            <i class="bi bi-google gmail "></i>
+            
           </div>
 
           <hr />
@@ -40,7 +41,7 @@ function Login({ show, onHide }) {
               <Form.Label>Password</Form.Label>
               <Form.Control type="password" placeholder="Password" />
             </Form.Group>
-            <Link to="/forget_password">
+            <Link to="/forget_password" onClick={onHide}>
               <h6 className="text-end ">Forget password?</h6>
             </Link>
             <Button className="btn-login" onClick={onHide}>
@@ -50,7 +51,7 @@ function Login({ show, onHide }) {
         </Modal.Body>
         <Modal.Footer className=" justify-content-center align-items-baseline ">
           <h6>Don't have an account ? </h6>
-          <Link to="/forget_password">
+          <Link to="/register" onClick={onHide}>
             <h6 >Create</h6>
           </Link>
         </Modal.Footer>

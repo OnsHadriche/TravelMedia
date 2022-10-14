@@ -1,7 +1,7 @@
 .modal-dialog{
     background-color: rgba(88, 83, 83, 0.541);
     position: relative;
-    margin-top: 10%;
+    margin-top: 5%;
     z-index: 100001;
 }
 .btn-login{
