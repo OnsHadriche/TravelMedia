@@ -54,12 +54,12 @@ function Navbar() {
                 Events
               </NavLink>
               <Nav to="#memes" className="nav-link btn-nav">
-                <div onClick={() => setModalShowLogin(true)}>Sign Up</div>
+                <div onClick={() => setModalShowLogin(true)}>Sign in</div>
               </Nav>
             </Nav>
             <Nav className="ms-auto">
               <div>
-                <button class="button-28" onClick={() => setModalShowLogin(true)}>Sign Up</button>
+                <button class="button-28" onClick={() => setModalShowLogin(true)}>Sign in</button>
               </div>
             </Nav>
           </BNavbar.Collapse>
