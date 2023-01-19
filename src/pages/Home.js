@@ -7,6 +7,7 @@ import Pub from "../components/Pub";
 import footerHome from "../components/footerHome";
 import "../styles/HomeStyle.css";
 import RecipeReviewCard from "../components/CardHotel";
+import CarteAgence from "../components/CarteAgence";
 
 function Home() {
   return (
@@ -38,7 +39,7 @@ function Home() {
         <Container className="mt-5">
           <h2 className="text-center title-destination">Popular Agences </h2>
           <div>
-            
+            <CarteAgence/>
           </div>
         </Container>
       </div>

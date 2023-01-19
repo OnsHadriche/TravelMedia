@@ -52,21 +52,7 @@ function CardDestination() {
     }}
    
     pagination={true}
-    // autoplay={false}
-    // breakpoints={{
-    //   966:{
-    //     width:800,
-    
-    //   },
-    //   798: {
-    //     width: 700,
-      
-    //   },
-    //   640:{
-    //     width:340,
-    //     slidesPerView:1
-    //   },
-    // }}
+ 
     modules={[EffectCoverflow, Pagination]}
     className="mySwiper"
   >
