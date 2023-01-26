@@ -35,3 +35,14 @@
   padding: 5px 8px;
 }
 
+.btn-submit{
+  transform: translateX(25%);
+}
+@media screen and (max-width:406px){
+  .title-sign-up h2{
+    font-size: 18px;
+  }
+  .title-sign-up P{
+    font-size: 15px;
+  }
+}
