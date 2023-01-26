@@ -19,6 +19,7 @@ export const requestFailed = (err) =>{
         errorMessage = err.response.data.error.details && err.response.data.error.details[0]&&err.response.data.error.details[0].message
     }
     if(errorMessage){
+        console.log(1236)
         alertError(errorMessage)
     }
     return {

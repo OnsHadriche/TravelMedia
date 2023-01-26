@@ -12,7 +12,7 @@ import {
 } from "./feedbackActionCreators";
 import { alertSuccess } from "../../utils/feedback";
 import { toast } from "react-toastify";
-import { REMOVE_HOTEL } from "../Types/hotelType";
+// import { REMOVE_HOTEL } from "../Types/hotelType";
 
 export const login = (user, token) => ({
   type: LOGIN,
@@ -30,14 +30,14 @@ export const updateUserInfo = (user) => ({
   type: UPDATE_USER_INFO,
   payload: user,
 });
-export const addFavoriteHotel = (id) => ({
-  type: ADD_FAV_HOTEL,
-  payload: id,
-});
-export const removeFavoriteHotel = (id) => ({
-  type: REMOVE_HOTEL,
-  payload: id,
-});
+// export const addFavoriteHotel = (id) => ({
+//   type: ADD_FAV_HOTEL,
+//   payload: id,
+// });
+// export const removeFavoriteHotel = (id) => ({
+//   type: REMOVE_HOTEL,
+//   payload: id,
+// });
 export const requestLogin = (email, password) => {
   return async (dispatch) => {
     dispatch(requestStarted());
@@ -59,7 +59,7 @@ export const requestLogin = (email, password) => {
   };
 };
 
-export const requestRegister = (data, history) => {
+export const requestRegister = (data, navigate) => {
   return async (dispatch) => {
     dispatch(requestStarted());
     try {
@@ -71,7 +71,7 @@ export const requestRegister = (data, history) => {
       if (res.data.message) {
         alertSuccess(res.data.message);
       }
-      history.push("/home");
+      navigate("/");
     } catch (error) {
       dispatch(requestFailed(error));
     }
@@ -104,51 +104,51 @@ export const requestUpdateUserInfo = (formData, history) => {
     }
   };
 };
-export const addToListFavoritHotel = (id) => {
-  return async (dispatch, getState) => {
-    const state = getState();
-    const token = state.user.token;
-    console.log({ id });
-    dispatch(requestStarted());
-    try {
-      const res = await axios.put(
-        `${process.env.REACT_APP_API_URL}/auth/add-fav-hotel`,
-        { id },
-        { headers: { authorization: token } }
-      );
-      dispatch(requestSucceeded());
-      if (res.data.message) {
-        alertSuccess(res.data.message);
-      }
-      // localStorage.setItem("favoriteHotels", JSON.stringify(res.data.userToUpdate.listFavoriteHotel));
-      dispatch(addFavoriteHotel(id));
-    } catch (error) {
-      dispatch(requestFailed(error));
-    }
-  };
-};
-export const removeFromFavoriteHotel = (id) => {
-  return async (dispatch, getState) => {
-    const state = getState();
-    const token = state.user.token;
-    console.log({ id });
-    dispatch(requestStarted());
-    try {
-      const res = await axios.put(
-        `${process.env.REACT_APP_API_URL}/auth/remove-fav-hotel`,
-        { id },
-        { headers: { authorization: token } }
-      );
-      dispatch(requestSucceeded());
-      if (res.data.message) {
-        alertSuccess(res.data.message);
-      }
-      dispatch(removeFavoriteHotel(id));
-    } catch (error) {
-      dispatch(requestFailed(error));
-    }
-  };
-};
+// export const addToListFavoritHotel = (id) => {
+//   return async (dispatch, getState) => {
+//     const state = getState();
+//     const token = state.user.token;
+//     console.log({ id });
+//     dispatch(requestStarted());
+//     try {
+//       const res = await axios.put(
+//         `${process.env.REACT_APP_API_URL}/auth/add-fav-hotel`,
+//         { id },
+//         { headers: { authorization: token } }
+//       );
+//       dispatch(requestSucceeded());
+//       if (res.data.message) {
+//         alertSuccess(res.data.message);
+//       }
+//       // localStorage.setItem("favoriteHotels", JSON.stringify(res.data.userToUpdate.listFavoriteHotel));
+//       dispatch(addFavoriteHotel(id));
+//     } catch (error) {
+//       dispatch(requestFailed(error));
+//     }
+//   };
+// };
+// export const removeFromFavoriteHotel = (id) => {
+//   return async (dispatch, getState) => {
+//     const state = getState();
+//     const token = state.user.token;
+//     console.log({ id });
+//     dispatch(requestStarted());
+//     try {
+//       const res = await axios.put(
+//         `${process.env.REACT_APP_API_URL}/auth/remove-fav-hotel`,
+//         { id },
+//         { headers: { authorization: token } }
+//       );
+//       dispatch(requestSucceeded());
+//       if (res.data.message) {
+//         alertSuccess(res.data.message);
+//       }
+//       dispatch(removeFavoriteHotel(id));
+//     } catch (error) {
+//       dispatch(requestFailed(error));
+//     }
+//   };
+// };
 
 export const requestForgetPassword = (email) => {
   return async (dispatch) => {

@@ -1,4 +1,4 @@
-import {REQUEST_FAILED,REQUEST_STARTED,REQUEST_SUCCEEDED} from "../types/feedbackTypes>";
+import {REQUEST_FAILED,REQUEST_STARTED,REQUEST_SUCCEEDED} from "../types/feedbackTypes";
 
 const initialState = {
   loading: false,
