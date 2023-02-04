@@ -3,6 +3,94 @@
     margin-left: 4rem;
     transform: translateY(-30%);
 } */
-.btn-add{
-    transform: translateX(-28%);
+.btn-add-delete {
+  transform: translateX(-3%);
+  margin-top: 0.8rem;
+}
+
+.btn-add , .btn-delete{
+  font-size:1.2rem;
+  cursor: pointer;
+  padding: 0.1em 0.6em;
+  font-weight: bold;
+  border: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 40px;
+  width: 180px;
+  padding: .1em .6em;
+  color: #181D31;
+}
+.btn-add:active {
+    box-shadow: 0 0 9e9q inset #0009; 
+    background-color: #62B6B7;
+    color: #fff;
+  }
+  .btn-add {
+    --c:  #62B6B7; /* the color*/
+    
+    box-shadow: 0 0 0 .1em inset var(--c); 
+    --_g: linear-gradient(var(--c) 0 0) no-repeat;
+    background: 
+      var(--_g) calc(var(--_p,0%) - 100%) 0%,
+      var(--_g) calc(200% - var(--_p,0%)) 0%,
+      var(--_g) calc(var(--_p,0%) - 100%) 100%,
+      var(--_g) calc(200% - var(--_p,0%)) 100%;
+    background-size: 50.5% calc(var(--_p,0%)/2 + .5%);
+    outline-offset: .1em;
+    transition: background-size .4s, background-position 0s .4s;
+  }
+  .btn-add:hover {
+    --_p: 100%;
+    transition: background-position .4s, background-size 0s;
+  }
+  .btn-add:active {
+    box-shadow: 0 0 9e9q inset #0009; 
+    background-color: var(--c);
+    color: #fff;
+  }
+  .btn-add .icon-add{
+    color: #181D31!important;
+  }
+  
+
+
+.btn-delete:active {
+    box-shadow: 0 0 9e9q inset #0009; 
+    background-color: #E94560;
+    color: #fff;
+  }
+  .btn-delete {
+    --c:  #E94560; /* the color*/
+    
+    box-shadow: 0 0 0 .1em inset var(--c); 
+    --_g: linear-gradient(var(--c) 0 0) no-repeat;
+    background: 
+      var(--_g) calc(var(--_p,0%) - 100%) 0%,
+      var(--_g) calc(200% - var(--_p,0%)) 0%,
+      var(--_g) calc(var(--_p,0%) - 100%) 100%,
+      var(--_g) calc(200% - var(--_p,0%)) 100%;
+    background-size: 50.5% calc(var(--_p,0%)/2 + .5%);
+    outline-offset: .1em;
+    transition: background-size .4s, background-position 0s .4s;
+  }
+  .btn-delete:hover {
+    --_p: 100%;
+    transition: background-position .4s, background-size 0s;
+  }
+  .btn-delete:active {
+    box-shadow: 0 0 9e9q inset #0009; 
+    background-color: var(--c);
+    color: #fff;
+  }
+  .btn-delete .icon-cancel{
+    color: #181D31!important;
+  }
+  
+@media screen and (max-width:450px) {
+  .btn-add, .btn-delete{
+    height: 70px;
+  }
+  
 }

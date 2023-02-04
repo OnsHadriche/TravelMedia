@@ -13,10 +13,7 @@ function RoomAndGuests(props) {
   const numberOfChildren = [0, 1, 2, 3, 4];
   const [nbChilds, setNbChilds] = useState(0);
   const [age, setAge] = useState(0);
-  const [open, setClose] = useState(true);
-  const handleClose = (e) => {
-    setClose(false);
-  };
+
   const handleChange = (event) => {
     setNbChilds(event.target.value);
   };
@@ -27,7 +24,7 @@ function RoomAndGuests(props) {
       <div>
         <h6>Room {props.numberRoom}</h6>
       </div>
-      <div>
+      <div className="d-flex flex-wrap">
         <div>
           <FormControl sx={{ m: 1, width: "200px" }} variant="outlined">
             <InputLabel htmlFor="outlined-adornment-password">
