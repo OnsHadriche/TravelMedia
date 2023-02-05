@@ -12,52 +12,51 @@ import AcUnitIcon from "@mui/icons-material/AcUnit";
 import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 import DateRangePicker from "./checkDate";
+import { useDispatch, useSelector } from "react-redux";
+import { addRatingToHotel } from "../redux/actions/hotelActions";
+import { useParams } from "react-router-dom";
 // import DateRate from "./dateRate";
 
 
 
 
 
-function CardDetailsHotel() {
-    // const dispatch = useDispatch();
-    // const { id } = useParams();
-    // const hotelSelected = useSelector((state) => state.hotels.selected);
-    // const { info } = useSelector((state) => state.user);
+function CardDetailsHotel({hotelSelected}) {
+    const dispatch = useDispatch();
+    const { id } = useParams();
+    const { info } = useSelector((state) => state.user);
   
-    // console.log("=====================================");
-    // const [value, setValue] = useState(hotelSelected?.userReview?.note);
-    // console.log(value);
+    console.log("=====================================");
+    const [value, setValue] = useState(hotelSelected?.userReview?.note);
+    console.log(value);
   
-    // useEffect(() => {});
-    // useEffect(() => {
-    //   dispatch(fetchHotelById(id));
-    // }, [dispatch, id]);
-    // const handleSubmit = (e) => {
-    //   e.preventDefault();
   
-    //   dispatch(addRatingToHotel(id, { note: value, user: info._id, hotel: id }));
-    // };
+    const handleSubmit = (e) => {
+      e.preventDefault();
+  
+      dispatch(addRatingToHotel(id, { note: value, user: info._id, hotel: id }));
+    };
   
     return (
       <>
         <div className="d-flex align-items-center">
-          {/* <h1>{hotelSelected?.hotel?.title} </h1> */}
-          <h1>test</h1>
+          <h1>{hotelSelected?.hotel?.title} </h1>
+        
           {/* <form onSubmit={handleSubmit}> */}
           <form className="row">
             <Rating
               name="simple-controlled"
-              value={3}
+              value={value}
               precision={1}
-            //   onChange={(event, newValue) => {
-            //     setValue(newValue);
-            //   }}
+              onChange={(newValue) => {
+                setValue(newValue);
+              }}
               emptyIcon={
                 <StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />
               }
               className="ms-1 col"
             />
-            <button type="submit" className="btn btn-primary col">
+            <button type="submit" className="btn btn-primary col" onClick={handleSubmit}>
               Submit
             </button>
           </form>
@@ -69,13 +68,7 @@ function CardDetailsHotel() {
         </div>
         <div className="mt-4">
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore,
-            eaque. Id quaerat maiores, quae earum accusamus molestias ratione
-            quasi vel eligendi amet rem qui, excepturi beatae rerum voluptatibus
-            dolor quam. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Repudiandae, alias pariatur quo voluptatibus architecto qui odio quae
-            unde veniam sequi mollitia id quam cupiditate, quia facilis ea soluta
-            rem dignissimos.
+            {hotelSelected?.details}
           </p>
         </div>
         <div>

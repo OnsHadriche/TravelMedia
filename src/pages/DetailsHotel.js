@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Accordion, Button, Container } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
@@ -7,15 +9,28 @@ import "swiper/css/thumbs";
 import AddRooms from "../components/AddRoom";
 import CardDetailsHotel from "../components/CardDetailsHotel";
 import DateRangePicker from "../components/checkDate";
+import ModaleVerif from "../components/ModaleVerif";
 
 import img6 from "../images/bali.jpg";
+import { fetchHotelById } from "../redux/actions/hotelActions";
 import"../styles/DeatailsHotel.css"
 
 function DetailsHotel() {
+  const dispatch = useDispatch()
+  const selectHotel = useSelector((state)=> state.hotels.selected)
+  const {id} = useParams()
+
+  useEffect(()=>{
+    dispatch(fetchHotelById(id))
+  },[dispatch,id])
   const style_Slider = {
     height: "20rem",
     width: "30rempx",
   };
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   return (
     <>
@@ -37,7 +52,7 @@ function DetailsHotel() {
           </div>
 
           <div className="col-md-6 p-4">
-            <CardDetailsHotel />
+            <CardDetailsHotel hotelSelected ={selectHotel}/>
           </div>
         </div>
         <div className="bg-search ">
@@ -49,6 +64,7 @@ function DetailsHotel() {
               <Button
                 variant="outline-warning"
                 style={{ width: 150, height: 56 }}
+                onClick = {handleShow}
               >
                 ChecK avaibility
               </Button>
@@ -68,6 +84,7 @@ function DetailsHotel() {
           </div>
         </div>
       </Container>
+      <ModaleVerif show = {show} handleClose ={handleClose}/>
     </>
   );
 }
