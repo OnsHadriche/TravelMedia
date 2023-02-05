@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container } from "react-bootstrap";
 
 import CardDestination from "../components/CardDestination";
@@ -8,8 +8,19 @@ import footerHome from "../components/footerHome";
 import "../styles/HomeStyle.css";
 import RecipeReviewCard from "../components/CardHotel";
 import CarteAgence from "../components/CarteAgence";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchAllHotels } from "../redux/actions/hotelActions";
 
 function Home() {
+  const dispatch = useDispatch();
+  const allHotels =  useSelector((state) => state.hotels.all);
+  
+  useEffect(() => {
+    if (allHotels) {
+      dispatch(fetchAllHotels());
+    }
+  },[]);
+  console.log(allHotels)
   return (
     <div>
       <div className=" body-home">
@@ -33,7 +44,7 @@ function Home() {
         <Container className="mt-5">
           <h2 className="text-center title-destination">Top Hotels </h2>
           <div>
-            <RecipeReviewCard />
+            <RecipeReviewCard hotel = {allHotels[0]}/>
           </div>
         </Container>
         <Container className="mt-5">

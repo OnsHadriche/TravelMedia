@@ -26,10 +26,10 @@ function Navbar() {
             className="justify-content-between"
           >
             <Nav className="ms-auto">
-              <NavLink to="#features" className="nav-link">
+              <NavLink to="/" className="nav-link">
                 Home
               </NavLink>
-              <NavLink to="#deets" className="nav-link">
+              <NavLink to="/Hotels" className="nav-link">
                 Hotels
               </NavLink>
               <NavLink to="#pricing" className="nav-link">
