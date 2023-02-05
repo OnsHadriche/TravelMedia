@@ -1,0 +1,5 @@
+export const SET_ALL_PAGES = 'SELECT_ALL_PAGES'
+export const SELECT_PAGE ='SELECT_PAGE'
+export const REMOVE_PAGE = 'REMOVE_PAGE'
+export const UPDATE_PAGE = 'UPDATE_PAGE'
+export const ADD_PAGE = 'ADD_PAGE'
