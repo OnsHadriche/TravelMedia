@@ -1,0 +1,6 @@
+export const SET_ALL_HOTELS = 'SELECT_ALL_HOTELS'
+export const SELECT_HOTEL ='SELECT_HOTEL'
+export const SELECT_HOTEL_PAGE = ' SELECT_HOTEL_PAGE'
+export const REMOVE_HOTEL = 'REMOVE_HOTEL'
+export const UPDATE_HOTEL = 'UPDATE_HOTEL'
+export const ADD_HOTEL = 'ADD_HOTEL'
