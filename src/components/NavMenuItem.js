@@ -16,7 +16,7 @@ function NavMenuItem({ page, master,styleIcon }) {
     <div>
       {isAuth && userId === master && (
         <NavDropdown.Item >
-          <Link to = {`/pages/${page._id}`} className='nav-link-user' style={{color:'black'}}>
+          <Link to = {`/page/${page._id}`} className='nav-link-user' style={{color:'black'}}>
           <FaPager style={styleIcon}/> {page?.title}
 
           </Link>

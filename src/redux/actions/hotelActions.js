@@ -97,7 +97,7 @@ export const fetchHotelByIdPage = (id) => {
     }
   };
 };
-export const requestCreatingHotel = (PageId, data, history) => {
+export const requestCreatingHotel = (PageId, data, navigate) => {
   return async (dispatch, getState) => {
     const state = getState();
     const token = state.user.token;
@@ -117,7 +117,7 @@ export const requestCreatingHotel = (PageId, data, history) => {
       console.log(res.data);
       if (res.data && res.data.hotel && res.data.hotel._id) {
         dispatch(createHotel({ ...data, _id: res.data.hotel._id }));
-        history.push("/");
+        navigate("/");
       }
     } catch (error) {
       dispatch(requestFailed(error));
