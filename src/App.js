@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import CreatePageAgency from "./pages/CreatePageAgency";
 import DetailsHotel from "./pages/DetailsHotel";
+import DetailsPage from "./pages/DetailsPage";
 // import DetailsHotel from "./pagenpm s/DetailsHotel";
 import Home from "./pages/Home";
 import Hotels from "./pages/Hotels";
@@ -37,6 +38,7 @@ function App() {
           <Route path="/hotel-details/:id" exact element={<DetailsHotel/>} />
           <Route path="/profile" exact element={<Profile/>} />
           <Route path="/create-page" exact element={<CreatePageAgency/>} />
+          <Route path="/page/:id" exact element={<DetailsPage/>} />
           {/* <CustomRoute path="/" exact component={<Home />} />
           <CustomRoute path="/hotels" exact component={<Hotels />} />
           <PublicRoute path="/register" exact component={<Register />} />

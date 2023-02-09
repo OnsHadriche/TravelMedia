@@ -21,14 +21,7 @@ function CarteAgence() {
 
     return (
       <Card sx={{ maxWidth: 300 }}>
-        <CardHeader
-          avatar={
-            <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-              {/* <img src={Agence} alt="agence"/> */}R
-            </Avatar>
-          }
-          title="Shrimp and Chorizo Paella"
-        />
+      
         <CardMedia
           component="img"
           height="190"
