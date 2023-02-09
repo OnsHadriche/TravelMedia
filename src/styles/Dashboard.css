@@ -1,0 +1,49 @@
+.style-dashboard {
+    background-image: linear-gradient(
+      to right bottom,
+      #cdb7b1,
+      #d2b3aa,
+      #d7afa4,
+      #dbac9d,
+      #dfa896,
+      #e3ac99,
+      #e7b09b,
+      #ebb49e,
+      #f0c1ab,
+      #f5cdb9,
+      #fadac8,
+      #ffe6d7
+    );
+    height: 192px;
+    display: flex;
+    flex-direction: row-reverse;
+    border-radius: 5px 5px 0 0;
+    width: auto;
+  }
+  .style-dashboard .edit {
+    background-color: white;
+    margin: 10px;
+    align-self: flex-start;
+  }
+  .cardImg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    height: 100%;
+    max-width: 60%;
+    min-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    left: 3em;
+  }
+  .cardImg .title-cover {
+    font-size: 22px;
+    font-family: "Franklin Gothic Medium", sans-serif;
+  }
+  .style-body-dashboard {
+    margin-top: 2em;
+  }
+  
