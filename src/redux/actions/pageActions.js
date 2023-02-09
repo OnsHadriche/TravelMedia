@@ -11,7 +11,7 @@ import {
   requestFailed,
   requestStarted,
   requestSucceeded,
-} from "./feedbackActions";
+} from "./feedbackActionCreators";
 
 export const setAlPages = (pages) => ({
   type: SET_ALL_PAGES,

@@ -3,8 +3,9 @@ import { combineReducers } from "redux";
 // import { eventReducer } from "./eventReducer";
 import feedbackReducer from "./feedbackReducer";
 import { hotelReducer } from "./hotelReducer";
-// import { packageReducer } from "./packageReducer";
-// import { pageReducer } from "./pageReducer";
+import { pageReducer } from "./pageReducer";
+import { packageReducer } from "./packageReducer";
+
 // import {ratingByUserReducer} from "./reviewRatingReducer"
 
 import { userReducer } from "./userReducer";
@@ -12,10 +13,10 @@ import { userReducer } from "./userReducer";
 export const rootReducer = combineReducers({
   user: userReducer,
   feedback: feedbackReducer,
-  // packs: packageReducer,
+  packs: packageReducer,
   hotels :hotelReducer,
   // events: eventReducer,
-  // pages: pageReducer,
+  pages: pageReducer,
   // collections: allCollectionsReducer,
   // reviews : ratingByUserReducer
 });
