@@ -21,18 +21,20 @@
   padding: 1rem 0;
 }
 
-.nav-link {
+.nav-link, .nav-link-user-sign-out, .nav-link-user{
   margin-left: 1em;
   cursor: pointer;
   text-decoration: none;
   font-family: "JosefinSans-VariableFont_wght";
 }
+
 .nav-link:hover {
   color: #9c2b37;
   border-bottom: 2px solid #9c2b37;
   transition: 0.2s;
   transform: scale(1.2);
 }
+
 .nav-link:focus {
   border-bottom: 2px solid #9c2b37;
 }
