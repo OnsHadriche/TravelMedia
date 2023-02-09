@@ -17,6 +17,7 @@ import Agence from "../images/agence-voyage.jpg";
 
 
 export default function RecipeReviewCard(props) {
+  
   const colorLocation = indigo["A700"];
 
   return (
@@ -24,9 +25,11 @@ export default function RecipeReviewCard(props) {
       <Card sx={{ maxWidth: 300 }}>
         <CardHeader
           avatar={
-            <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe"></Avatar>
+            <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+              {props.hotel.page.title[0]}
+            </Avatar>
           }
-          title="test"
+          title={props.hotel.page.title}
         />
         <CardMedia
           component="img"
@@ -38,7 +41,7 @@ export default function RecipeReviewCard(props) {
           <div>
             <div className="d-flex justify-content-between align-items-center ">
               <h6>{props.hotel.title}</h6>
-              <Rating name="read-only" readOnly value={5} size="small" />
+              <Rating name="read-only" readOnly value={props.value} size="small" />
             </div>
             <Typography variant="body2" color="text.secondary">
               <Typography gutterBottom variant="body2" component="div">

@@ -14,8 +14,12 @@ function Hotels() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [value, setValue]= useState()
+
   const allHotels =  useSelector((state) => state.hotels.all);
+ 
+
   const { isAuth, info } = useSelector((state) => state.user);
+
   const userId = info && info._id;
   const [modalShowLogin, setModalShowLogin] = useState(false);
   useEffect(() => {
@@ -23,6 +27,8 @@ function Hotels() {
       dispatch(fetchAllHotels());
     }
   },[]);
+
+
   const handleClickBook = (id) => {
     if (isAuth) {
       return navigate(`/hotel-details/${id}`);
