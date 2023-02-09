@@ -44,7 +44,12 @@ function Home() {
         <Container className="mt-5">
           <h2 className="text-center title-destination">Top Hotels </h2>
           <div>
-            <RecipeReviewCard hotel = {allHotels[0]}/>
+            {
+              allHotels.map((hotel)=>(
+
+                <RecipeReviewCard hotel = {hotel} />
+              ))
+            }
           </div>
         </Container>
         <Container className="mt-5">
