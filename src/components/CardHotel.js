@@ -41,7 +41,7 @@ export default function RecipeReviewCard(props) {
           <div>
             <div className="d-flex justify-content-between align-items-center ">
               <h6>{props.hotel.title}</h6>
-              <Rating name="read-only" readOnly value={props.value} size="small" />
+              <Rating name="read-only" readOnly value={props.hotel.star} size="small" />
             </div>
             <Typography variant="body2" color="text.secondary">
               <Typography gutterBottom variant="body2" component="div">

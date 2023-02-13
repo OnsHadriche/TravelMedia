@@ -70,7 +70,7 @@ export const fetchHotelById = (id) => {
       );
       dispatch(requestSucceeded());
       console.log(res.data);
-      const dataHotel = res.data
+      const dataHotel = res.data;
       dispatch(selectHotel(dataHotel));
     } catch (error) {
       dispatch(requestFailed(error));
@@ -133,7 +133,12 @@ export const requestUpdateHotel = (id, data) => {
       const res = await axios.put(
         `${process.env.REACT_APP_API_URL}/hotels/${id}`,
         data,
-        { headers: { authorization: token } }
+        {
+          headers: {
+            authorization: token,
+            "Content-Type": "multipart/form-data",
+          },
+        }
       );
       dispatch(requestSucceeded());
       if (res.data && res.data.message) {

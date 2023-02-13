@@ -17,10 +17,10 @@ function CreateHotel() {
   const [title, setTitle] = useState(" ");
   const [country, setCountry] = useState(" ");
   const [price, setPrice] = useState(" ");
-  const [category, setCategory] = useState(" ");
   const [file, setFile] = useState(null);
   const [details, setDetails] = useState(" ");
   const [rooms, setRooms] = useState(" ")
+  const [star , setStar] = useState("")
 
 
   const handleSubmit = (e) => {
@@ -32,7 +32,7 @@ function CreateHotel() {
     formData.append("price", price);
     formData.append("country", country);
     formData.append("details", details);
-    formData.append("category", category);
+    formData.append("star", star);
     formData.append("rooms", rooms);
     dispatch(requestCreatingHotel(formData, id, navigate));
   };
@@ -92,6 +92,15 @@ function CreateHotel() {
               type="number"
               value={rooms}
               onChange={(e)=>setRooms(e.target.value)}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3 col">
+            <Form.Label>Numbre of Stars</Form.Label>
+            <Form.Control
+              name="star"
+              type="number"
+              value={star}
+              onChange={(e)=>setStar(e.target.value)}
             />
           </Form.Group>
         </div>
