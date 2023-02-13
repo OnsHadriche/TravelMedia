@@ -3,6 +3,9 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import TabPanel from "./TabPanel";
+import HotelCreatedByPage from "./CardHotelCreatedByPage";
+import PackCreatedByPage from "./PackCreatedByPage";
+import EventCreatedByPage from "./EvenCreatedByPage";
 // import HotelCreatedByPage from "./HotelCreatedByPage";
 // import PackCreatedByPage from "./PackCreatedByPage";
 // import EventCreatedByPage from "./EventCreatedByPage";
@@ -32,13 +35,13 @@ function DashBoard() {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        {/* <HotelCreatedByPage/> */}
+        <HotelCreatedByPage/>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        {/* <PackCreatedByPage/> */}
+        <PackCreatedByPage/>
       </TabPanel>
       <TabPanel value={value} index={2}>
-        {/* <EventCreatedByPage/> */}
+        <EventCreatedByPage/>
       </TabPanel>
     </Box>
   );

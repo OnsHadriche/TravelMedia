@@ -9,11 +9,11 @@ import CreatePack from "./CreatePack";
 function BodyPage({ show, pageSelected }) {
   console.log(show);
   console.log("============");
-  console.log(pageSelected);
+
   return (
     <div>
       <div className="style-dashboard">
-        {pageSelected.photo === " "? (
+        {true ? (
           <>
             <UploadImg edit={"edit"} />
 
@@ -31,7 +31,7 @@ function BodyPage({ show, pageSelected }) {
       <div className="style-body-dashboard">
         {show.dash ? <DashBoard /> : null}
         {show.creatHotel ? <CreateHotel /> : null}
-        {show.creatPack ? <CreatePack /> : null}
+        {show.creatPack ? <CreatePack  idPage = {pageSelected._id}/> : null}
         {show.creatEvent ? <CreateEvent /> : null}
       </div>
     </div>

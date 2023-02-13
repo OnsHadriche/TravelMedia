@@ -8,13 +8,13 @@ import {
   CDBSidebarFooter,
 } from "cdbreact";
 
-
+import "../styles/SideStyle.css"
 const SideNavMenu = ({ page,handleClickComponent}) => {
 
 
 
   return (
-    <CDBSidebar textColor="#fff" backgroundColor="#14274E"  style = {{height: 746}} >
+    <CDBSidebar textColor="#fff" backgroundColor="#14274E"  className="side-nav" >
       <CDBSidebarHeader
         prefix={<i className="fa fa-bars" />}
       >
@@ -52,10 +52,6 @@ const SideNavMenu = ({ page,handleClickComponent}) => {
           {/* <CDBSidebarMenuItem icon="bi bi-people" > Add an administrator</CDBSidebarMenuItem> */}
         </CDBSidebarMenu>
       </CDBSidebarContent>
-
-      <CDBSidebarFooter>
-        <CDBSidebarMenuItem icon="bi bi-gear-fill"> Setting</CDBSidebarMenuItem>
-      </CDBSidebarFooter>
     </CDBSidebar>
   );
 };
