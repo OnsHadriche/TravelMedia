@@ -28,6 +28,7 @@ function HotelCreatedByPage() {
           <div  className = "col" key={index}>
             <ListItem
               title={hotel.title}
+              photo = {hotel.image}
               date={hotel.dateCreated}
               linkUpdate={`/update-hotel/${hotel._id}`}
               handleClose={handleClose}

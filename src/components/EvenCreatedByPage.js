@@ -29,6 +29,7 @@ function EventCreatedByPage() {
           <div className="col" key={index}>
             <ListItem
               title={event.title}
+              photo = {event.image}
               date={event.createdAt}
               linkUpdate={`/update-event/${event._id}`}
               handleClose={handleClose}

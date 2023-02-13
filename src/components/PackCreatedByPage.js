@@ -29,6 +29,7 @@ function PackCreatedByPage() {
           <div className="col" key={index}>
             <ListItem
               title={pack.title}
+              photo = {pack.image}
               date={pack.createdAt}
               linkUpdate={`/update-pack/${pack._id}`}
               handleClose={handleClose}
