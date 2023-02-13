@@ -17,7 +17,7 @@
 .navbar-brand {
   display: block;
   font-family: "VintageKing";
-  font-size: 2rem;
+  font-size: 1.5rem;
   padding: 1rem 0;
 }
 
@@ -28,16 +28,6 @@
   font-family: "JosefinSans-VariableFont_wght";
 }
 
-.nav-link:hover {
-  color: #9c2b37;
-  border-bottom: 2px solid #9c2b37;
-  transition: 0.2s;
-  transform: scale(1.2);
-}
-
-.nav-link:focus {
-  border-bottom: 2px solid #9c2b37;
-}
 
 /* CSS */
 .btn-nav {
@@ -103,12 +93,7 @@
   .nav-link {
     margin-right: 5rem;
   }
-  .nav-link:hover {
-    color: #9c2b37 !important;
-    border-bottom: 2px solid #9c2b37;
-    transition: 0.3s;
-    transform: scale(1.1);
-  }
+  
 }
 @media screen and (max-width: 280px){
 

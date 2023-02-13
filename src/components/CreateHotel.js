@@ -6,7 +6,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import { requestCreatingHotel } from "../redux/actions/hotelActions";
-import "../styles/CreateHotel.css"
+import "../styles/CreateItem.css"
 
 function CreateHotel() {
   const dispatch = useDispatch();
@@ -98,14 +98,15 @@ function CreateHotel() {
             onChange={handleChange}
           />
         </Form.Group>
-        <button class="button-18" role="button" type="submit">
+        <button class="button-18" role="button" type="submit" onClick={handleSubmit}>
           {" "}
           Add Hotel
         </button>
         {/* 
         <Button type="submit" className="mx-auto d-block w-100">
-          Add
-        </Button> */}
+        Add
+      </Button> */}
+  
       </Form>
     </Container>
   );

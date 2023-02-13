@@ -94,14 +94,14 @@ export const fetchEventByPage = (id) => {
     }
   };
 };
-export const requestCreatingNewEvent = (data,id, categoryId, history) => {
+export const requestCreatingNewEvent = (data,id, navigate) => {
   return async (dispatch, getState) => {
     const state = getState();
     const token = state.user.token;
     dispatch(requestStarted());
     try {
       const res = await axios.post(
-        `${process.env.REACT_APP_API_URL}/events/create-event/${categoryId}/${id}`,
+        `${process.env.REACT_APP_API_URL}/events/create-event/${id}`,
         data,
         { headers: { authorization: token } }
       );
@@ -109,9 +109,10 @@ export const requestCreatingNewEvent = (data,id, categoryId, history) => {
         alertSuccess(res.data.message);
       }
       dispatch(requestSucceeded());
+      console.log(res.data)
       if (res.data && res.data.event && res.data.event._id) {
         dispatch(addNewEvent({ ...data, _id: res.data.event._id }));
-        history.push("/events");
+        navigate("/");
       }
     } catch (error) {
       dispatch(requestFailed(error));

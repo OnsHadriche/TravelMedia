@@ -57,7 +57,7 @@ function DetailsPage() {
   useEffect(() => {
     dispatch(getPageById(id));
   }, [dispatch, id]);
-  console.log(pageSelected);
+
   return (
     <>
       <div className="d-flex">
