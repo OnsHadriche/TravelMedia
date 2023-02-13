@@ -94,7 +94,7 @@ export const fetchEventByPage = (id) => {
     }
   };
 };
-export const requestCreatingNewEvent = (data,id, navigate) => {
+export const requestCreatingNewEvent = (data, id, navigate) => {
   return async (dispatch, getState) => {
     const state = getState();
     const token = state.user.token;
@@ -109,10 +109,10 @@ export const requestCreatingNewEvent = (data,id, navigate) => {
         alertSuccess(res.data.message);
       }
       dispatch(requestSucceeded());
-      console.log(res.data)
+      console.log(res.data);
       if (res.data && res.data.event && res.data.event._id) {
         dispatch(addNewEvent({ ...data, _id: res.data.event._id }));
-        navigate("/");
+        navigate(`/page/${id}`);
       }
     } catch (error) {
       dispatch(requestFailed(error));
@@ -127,7 +127,12 @@ export const requestUpdateEvent = (id, data, history) => {
       const res = await axios.put(
         `${process.env.REACT_APP_API_URL}/events/${id}`,
         data,
-        { headers: { authorization: token } }
+        {
+          headers: {
+            authorization: token,
+            "Content-Type": "multipart/form-data",
+          },
+        }
       );
       dispatch(requestSucceeded());
       if (res.data && res.data.message) {
