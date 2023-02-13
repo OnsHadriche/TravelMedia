@@ -7,33 +7,41 @@ import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import { requestCreatingHotel } from "../redux/actions/hotelActions";
 import "../styles/CreateItem.css"
+import { useRef } from "react";
 
 function CreateHotel() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { id } = useParams();
+  const inputFileRef = useRef();
+  const [title, setTitle] = useState(" ");
+  const [country, setCountry] = useState(" ");
+  const [price, setPrice] = useState(" ");
+  const [category, setCategory] = useState(" ");
   const [file, setFile] = useState(null);
+  const [details, setDetails] = useState(" ");
+  const [rooms, setRooms] = useState(" ")
 
 
-  const [hotelData, setHotelData] = useState({
-    photo: " ",
-    title: " ",
-    price: " ",
-    country: " ",
-    details: " ",
-    // photos: " ",
-    rooms: " ",
-  });
-  const handleChange = (e) => {
-    setHotelData((prevHotelData) => ({
-      ...prevHotelData,
-      [e.target.name]: e.target.value,
-    }));
-  };
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(requestCreatingHotel(id, hotelData, navigate));
+    const formData = new FormData();
+    
+    formData.append("image", file);
+    formData.append("title", title);
+    formData.append("price", price);
+    formData.append("country", country);
+    formData.append("details", details);
+    formData.append("category", category);
+    formData.append("rooms", rooms);
+    dispatch(requestCreatingHotel(formData, id, navigate));
   };
+
+  const handleChange = (e) => {
+    const newFile = e.target.files[0];
+    setFile(newFile);
+  };
+
   return (
     <Container className="mt-3">
       <h1>Create New Offre Hotel</h1>
@@ -43,8 +51,8 @@ function CreateHotel() {
             <Form.Label>Title</Form.Label>
             <Form.Control
               name="title"
-              value={hotelData.title}
-              onChange={handleChange}
+              value={title}
+              onChange={(e)=>setTitle(e.target.value)}
             />
           </Form.Group>
           <Form.Group className="mb-3 col">
@@ -52,8 +60,8 @@ function CreateHotel() {
             <Form.Control
               name="price"
               type="number"
-              value={hotelData.price}
-              onChange={handleChange}
+              value={price}
+              onChange={(e)=>setPrice(e.target.value)}
             />
           </Form.Group>
         </div>
@@ -61,7 +69,7 @@ function CreateHotel() {
           <Form.Label>Cover Photo</Form.Label>
           <Form.Control
             name="photo"
-            // value={hotelData.photo}
+            ref={inputFileRef}
             onChange={handleChange}
             type="file"
             accept="image/*"
@@ -73,8 +81,8 @@ function CreateHotel() {
             <Form.Control
               name="country"
               type="text"
-              value={hotelData.country}
-              onChange={handleChange}
+              value={country}
+              onChange={(e)=>setCountry(e.target.value)}
             />
           </Form.Group>
           <Form.Group className="mb-3 col">
@@ -82,8 +90,8 @@ function CreateHotel() {
             <Form.Control
               name="rooms"
               type="number"
-              value={hotelData.rooms}
-              onChange={handleChange}
+              value={rooms}
+              onChange={(e)=>setRooms(e.target.value)}
             />
           </Form.Group>
         </div>
@@ -94,8 +102,8 @@ function CreateHotel() {
             as="textarea"
             rows={3}
             name="details"
-            value={hotelData.details}
-            onChange={handleChange}
+            value={details}
+            onChange={(e)=>setDetails(e.target.value)}
           />
         </Form.Group>
         <button class="button-18" role="button" type="submit" onClick={handleSubmit}>
