@@ -7,33 +7,31 @@ import CardMedia from "@mui/material/CardMedia";
 
 import Typography from "@mui/material/Typography";
 
-import Agence from "../images/agence-voyage.jpg";
-
 import Button from "@mui/material/Button";
 
 import dateFormat from "dateformat";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import RemoveModal from "./RemoveModal";
 
 function ListItem({
   title,
   date,
+  photo,
   linkUpdate,
   handleClose,
   handleShow,
   requestRemove,
   show,
 }) {
- 
+  const navigate = useNavigate()
   const dateCreate = dateFormat(date, "mmmm dS, yyyy");
- 
   return (
     <>
-      <Card sx={{ display: "flex", width: 300, height: 200}}>
+      <Card sx={{ display: "flex", width: 300, height: 200 }}>
         <CardMedia
           component="img"
           sx={{ width: 140 }}
-          image={Agence}
+          image={photo}
           alt="Live from space album cover"
         />
         <Box sx={{ display: "flex", flexDirection: "column" }}>
@@ -51,7 +49,10 @@ function ListItem({
           </CardContent>
           <Box sx={{ display: "flex", alignItems: "center", pl: 1, pb: 1 }}>
             <Link to={linkUpdate}>
-              <Button size="small">Edit</Button>
+            <Button size="small" >
+              Edit
+            </Button>
+
             </Link>
 
             {/* <Button size="small">Delete</Button> */}

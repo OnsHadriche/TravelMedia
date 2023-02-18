@@ -16,7 +16,7 @@ import { IconButton } from "@mui/material";
 import { CgProfile } from "react-icons/cg";
 import { IoIosBusiness } from "react-icons/io";
 import { FiLogOut } from "react-icons/fi";
-import { BiCalendarEvent } from "react-icons/bi";
+import { BsShop } from "react-icons/bs";
 import { fetchAllPages } from "../redux/actions/pageActions";
 import NavMenuItem from "./NavMenuItem";
 
@@ -53,10 +53,11 @@ function Navbar() {
       icon: <IoIosBusiness style={styleIcon} />,
     },
     {
-      title: "Add Events",
-      link: "/choose-category-event",
-      icon: <BiCalendarEvent style={styleIcon} />,
+      title: "Bag Shop",
+      link: "/my-list-shop",
+      icon: <BsShop style={styleIcon} />,
     },
+   
   ];
   const handleLogOut = (e) => {
     e.preventDefault();
@@ -86,7 +87,7 @@ function Navbar() {
               <NavLink to="/Hotels" className="nav-link">
                 Hotels
               </NavLink>
-              <NavLink to="/Agency" className="nav-link">
+              <NavLink to="/agency" className="nav-link">
                 Agency
               </NavLink>
               {/* <NavDropdow title="Dropdown" id="collasible-nav-dropdown">
@@ -101,10 +102,10 @@ function Navbar() {
             </NavDropdown.Item>
           </NavDropdown> */}
 
-              <NavLink to="/Packges" className="nav-link">
+              <NavLink to="/packges" className="nav-link">
                 Packges
               </NavLink>
-              <NavLink to="/Events" className="nav-link">
+              <NavLink to="/events" className="nav-link">
                 Events
               </NavLink>
             </Nav>

@@ -1,18 +1,21 @@
 import { useDispatch } from "react-redux";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import UpdateEvent from "./pages/UpdateEvent";
-import UpdateHotel from "./pages/UpdateHotel";
-import UpdatePack from "./pages/UpdatePack";
+import Agency from "./pages/Agency";
 import CreatePageAgency from "./pages/CreatePageAgency";
+import DetailsEvent from "./pages/DetailsEvent";
 import DetailsHotel from "./pages/DetailsHotel";
 import DetailsPage from "./pages/DetailsPage";
+import Event from "./pages/Event";
 
 import Home from "./pages/Home";
 import Hotels from "./pages/Hotels";
 import Profile from "./pages/Profile";
 import Register from "./pages/Register";
 import ResetPwd from "./pages/ResetPasword";
+import UpdateEvent from "./pages/UpdateEvent";
+import UpdateHotel from "./pages/UpdateHotel";
+import UpdatePack from "./pages/UpdatePack";
 import { login } from "./redux/actions/userActionCreators";
 import CustomRoute from "./routers/CustomRoute";
 import PrivateRoute from "./routers/PrivateRoute";
@@ -36,12 +39,15 @@ function App() {
         <Routes>
           <Route path="/" exact element={<Home />} />
           <Route path="/hotels" exact element={<Hotels />} />
+          <Route path="/agency" exact element={<Agency />} />
+          <Route path="/events" exact element={<Event />} />
           <Route path="/register" exact element={<Register />} />
           <Route path="/forget_password" exact element={<ResetPwd />} />
           <Route path="/hotel-details/:id" exact element={<DetailsHotel/>} />
           <Route path="/profile" exact element={<Profile/>} />
           <Route path="/create-page" exact element={<CreatePageAgency/>} />
           <Route path="/page/:id" exact element={<DetailsPage/>} />
+          <Route path="/event/:id" exact element={<DetailsEvent/>} />
           <Route path = "/update-hotel/:id" exact element = {<UpdateHotel/>}/>
           <Route path = "/update-pack/:id" exact element = {<UpdatePack/>}/>
           <Route path = "/update-event/:id" exact element = {<UpdateEvent/>}/>
