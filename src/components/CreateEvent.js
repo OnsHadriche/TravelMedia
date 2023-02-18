@@ -127,7 +127,7 @@ function CreateEvent() {
           />
         </Form.Group>
 
-        <button class="button-18" role="button" type="submit">
+        <button className="button-18" role="button" type="submit">
           {" "}
           Add event
         </button>

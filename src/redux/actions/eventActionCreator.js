@@ -119,7 +119,7 @@ export const requestCreatingNewEvent = (data, id, navigate) => {
     }
   };
 };
-export const requestUpdateEvent = (id, data, history) => {
+export const requestUpdateEvent = (id, data, navigate) => {
   return async (dispatch, getState) => {
     const state = getState();
     const token = state.user.token;
@@ -137,7 +137,7 @@ export const requestUpdateEvent = (id, data, history) => {
       dispatch(requestSucceeded());
       if (res.data && res.data.message) {
         alertSuccess(res.data.message);
-        history.push("/events");
+        navigate("/events");
       }
       dispatch(updateEvent(id, data));
     } catch (error) {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 
 
 import ListItem from "./ListItem";
@@ -15,12 +15,13 @@ function EventCreatedByPage() {
   const handleShow = () => setShow(true);
   const dispatch = useDispatch();
   const allEventByPage = useSelector((state) => state.events.createdByPage);
+  
   console.log(allEventByPage)
   const { id } = useParams();
   useEffect(() => {
     dispatch(fetchEventByPage(id));
   }, [dispatch, id]);
-
+  
   return (
     <Container>
       <div className="row gy-4"
@@ -36,8 +37,6 @@ function EventCreatedByPage() {
               handleShow={handleShow}
               requestRemove={requestRemoveEvent(event._id,handleClose)}
               show={show}
-              
-
             />
           </div>
         ))}
