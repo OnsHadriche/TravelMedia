@@ -49,7 +49,7 @@ function Hotels() {
   };
   return (
     <>
-    <Container className="bg-hotel mt-3">
+    <div className="bg-hotel mt-3 mx-3">
       <div className="row align-items-centers gy-2 ">
         <div
           style={styleHotel}
@@ -86,7 +86,7 @@ function Hotels() {
           </Container>
         </div>
       </div>
-    </Container>
+    </div>
     <Login show={modalShowLogin} onHide={() => setModalShowLogin(false)} />
 
     </>

@@ -48,21 +48,17 @@ const styleHotelCard = {
 };
 return (
     <>
-    <Container className="bg-hotel ">
+    <Container>
       <div>
-        <div
-      
-        
-        >
           <SearchBarPage/>
-        </div>
+        
         <div
           style={styleHotelCard}
         >
           <Container >
             <div className="row gy-2">
               {allAgency?.map((page) => (
-                  <div className="col-4  col-sm-4 col-md-4" >
+                  <div className="col-4 col-sm-6 col-md-4" >
                   <CardPage
                   isAuth = {isAuth}
                   userId ={userId}

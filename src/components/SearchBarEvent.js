@@ -15,15 +15,13 @@ function SearchBarPage() {
                 id="outlined-basic"
                 label="choose your destination"
                 variant="outlined"
-                sx={{ m: 1, width: "250px" }}
-                className = "textSearch"
+                sx={{ m: 1}}
               />
               <TextField
                 id="outlined-basic"
-                label="Enter agency"
+                label="optional (choose category)"
                 variant="outlined"
-                className="textSearch"
-                sx={{ m: 1, width: "250px" }}
+                sx={{ m: 1 }}
               />
             </div>
   

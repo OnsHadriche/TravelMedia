@@ -40,21 +40,21 @@ console.log(typeof(props.star))
         <CardContent>
           <div>
             <div className="d-flex justify-content-between align-items-center ">
-              <h6>{props.HotelTitle}</h6>
-              <Rating name="read-only" readOnly value={props.star} size="small" />
+              <h6>{props.eventTitle}</h6>
+              
             </div>
             <Typography variant="body2" color="text.secondary">
               <Typography gutterBottom variant="body2" component="div">
                 <LocationOnOutlinedIcon
                   style={{ color: colorLocation, fontSize: "20px" }}
                 />
-                {props.HotelCountry}
+                {props.eventCountry}
               </Typography>
             </Typography>
           </div>
         </CardContent>
         <CardActions className="justify-content-between align-items-center ms-2">
-          <Typography>{props.HotelPrice} TND</Typography>
+          <Typography>{props.eventPrice} TND</Typography>
           <div>
             <Button onClick={()=>props.handleClickBook(props.id)}>Book</Button>
             <IconButton aria-label="add to favorites">

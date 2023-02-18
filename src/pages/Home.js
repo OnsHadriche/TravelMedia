@@ -13,14 +13,14 @@ import { fetchAllHotels } from "../redux/actions/hotelActions";
 
 function Home() {
   const dispatch = useDispatch();
-  const allHotels =  useSelector((state) => state.hotels.all);
-  
+  const allHotels = useSelector((state) => state.hotels.all);
+
   useEffect(() => {
     if (allHotels) {
       dispatch(fetchAllHotels());
     }
-  },[]);
-  console.log(allHotels)
+  }, []);
+
   return (
     <div>
       <div className=" body-home">
@@ -43,19 +43,27 @@ function Home() {
         </div>
         <Container className="mt-5">
           <h2 className="text-center title-destination">Top Hotels </h2>
-          <div>
-            {
-              allHotels.map((hotel)=>(
-
-                <RecipeReviewCard hotel = {hotel} />
-              ))
-            }
+          <div className="row gy-5 ">
+            {allHotels.map((hotel) => (
+              <div className="col">
+                <RecipeReviewCard
+                  hotel={hotel}
+                  Img={hotel.image}
+                  HotelTitle={hotel.title}
+                  HotelPrice={hotel.price}
+                  HotelCountry={hotel.country}
+                  id={hotel._id}
+                  page={hotel.page}
+                  star={hotel.star}
+                />
+              </div>
+            ))}
           </div>
         </Container>
         <Container className="mt-5">
           <h2 className="text-center title-destination">Popular Agences </h2>
           <div>
-            <CarteAgence/>
+            <CarteAgence />
           </div>
         </Container>
       </div>
