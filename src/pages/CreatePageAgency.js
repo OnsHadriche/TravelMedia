@@ -11,6 +11,7 @@ import "../styles/PageStyle.css";
 export default function CreatePageAgency(props) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  
   const [agencyData, setAgencyData] = useState({
     photo: " ",
     title: " ",
