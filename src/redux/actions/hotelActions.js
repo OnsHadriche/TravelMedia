@@ -51,7 +51,7 @@ export const fetchAllHotels = () => {
       const res = await axios.get(`${process.env.REACT_APP_API_URL}/hotels`);
       dispatch(requestSucceeded());
       const hotels = res.data;
-      // console.log(hotels)
+      console.log(hotels)
       dispatch(setAllHotels(hotels));
     } catch (error) {
       dispatch(requestFailed(error));
@@ -124,7 +124,7 @@ export const requestCreatingHotel = (PageId, data, navigate) => {
     }
   };
 };
-export const requestUpdateHotel = (id, data) => {
+export const requestUpdateHotel = (id, data, navigate) => {
   return async (dispatch, getState) => {
     const state = getState();
     const token = state.user.token;
@@ -145,6 +145,7 @@ export const requestUpdateHotel = (id, data) => {
         alertSuccess(res.data.message);
       }
       dispatch(updateHotel(id, data));
+      navigate("/")
     } catch (error) {
       dispatch(requestFailed(error));
     }

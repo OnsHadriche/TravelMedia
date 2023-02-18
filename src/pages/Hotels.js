@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import RecipeReviewCard from "../components/CardHotel";
+import CardHotel from "../components/CardHotel";
+
 import CheckInCheckOutDatePicker from "../components/checkDate";
 import Login from "../components/ModalLogin";
 import SearchHotel from "../components/SearchBarHotel";
@@ -22,6 +23,7 @@ function Hotels() {
 
   const userId = info && info._id;
   const [modalShowLogin, setModalShowLogin] = useState(false);
+
   useEffect(() => {
     if (allHotels) {
       dispatch(fetchAllHotels());
@@ -60,15 +62,23 @@ function Hotels() {
           className="col-lg-8 col-md-5 col-sm-12 style-margin mb-5"
         >
           <Container >
-            <div className="row">
+            <div className="row gy-2">
               {allHotels?.map((hotel) => (
-                <div className="col"       key={hotel._id}>
-                  <RecipeReviewCard
-                  hotel = {hotel}
-                  handleClickBook = {handleClickBook}
+                <div className="col-4  col-sm-4 col-md-4" >
+                  <CardHotel
                   isAuth = {isAuth}
                   userId ={userId}
-                  value = {value}
+                  Img={hotel.image}
+                  HotelTitle={hotel.title}
+                  HotelPrice={hotel.price}
+                  HotelCountry={hotel.country}
+                  id ={hotel._id}
+                  page = {hotel.page}
+                  star = {hotel.star}
+                  handleClickBook={handleClickBook}
+                  // isLiked={favColor}
+                  value ={value}
+
                   />
                 </div>
               ))}
