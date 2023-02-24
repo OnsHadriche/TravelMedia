@@ -16,7 +16,7 @@ import { red, indigo } from "@mui/material/colors";
 import Agence from "../images/agence-voyage.jpg";
 
 
-export default function CardEvent(props) {
+export default function CardPack(props) {
 console.log(typeof(props.star))
   const colorLocation = indigo["A700"];
 

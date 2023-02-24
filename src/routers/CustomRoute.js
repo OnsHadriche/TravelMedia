@@ -1,21 +1,23 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import { Redirect,Route } from "react-router-dom";
-import InsideLayout from "../layouts/InsideLayout";
 
-function PrivateRoute({ component: Component, ...rest }) {
-  const { isAuth } = useSelector(state => state.user);
-  return (
-      <Route
-          {...rest}
-          render={(props) => (
-              isAuth
-                  ? <InsideLayout><Component {...props} /></InsideLayout>
-                  : <Redirect to={{ pathname: '/', state: { from: props.location } }} />
-          )}
-      />
-  )
+import {  Route } from "react-router-dom";
+
+import { useSelector } from 'react-redux';
+import InsideLayout from '../layouts/InsideLayout';
+import OutsideLayout from '../layouts/OutsideLayout';
+
+
+
+function CustomRoute({ component: Component, ...rest }) {
+    const { isAuth } = useSelector(state => state.user);
+    return (
+        <Route
+            {...rest}
+            component={(props) => (
+                isAuth
+                    ? <InsideLayout><Component {...props} /></InsideLayout>
+                    : <OutsideLayout><Component {...props} /></OutsideLayout>
+            )}
+        />
+    )
 }
-
-
-export default PrivateRoute;
+export default CustomRoute;

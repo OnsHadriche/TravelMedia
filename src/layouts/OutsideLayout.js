@@ -1,10 +1,10 @@
 import React from "react";
-import NavBar from "../components/NavBar";
+import Navbar from "../components/Navbar";
 
 function OutsideLayout(props) {
   return (
     <div>
-      <NavBar />
+      <Navbar />
       <div>{props.children}</div>
     </div>
   );

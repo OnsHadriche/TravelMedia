@@ -10,9 +10,11 @@ import Event from "./pages/Event";
 
 import Home from "./pages/Home";
 import Hotels from "./pages/Hotels";
+import Package from "./pages/Package";
 import Profile from "./pages/Profile";
 import Register from "./pages/Register";
 import ResetPwd from "./pages/ResetPasword";
+
 import UpdateEvent from "./pages/UpdateEvent";
 import UpdateHotel from "./pages/UpdateHotel";
 import UpdatePack from "./pages/UpdatePack";
@@ -41,6 +43,7 @@ function App() {
           <Route path="/hotels" exact element={<Hotels />} />
           <Route path="/agency" exact element={<Agency />} />
           <Route path="/events" exact element={<Event />} />
+          <Route path="/package" exact element={<Package />} />
           <Route path="/register" exact element={<Register />} />
           <Route path="/forget_password" exact element={<ResetPwd />} />
           <Route path="/hotel-details/:id" exact element={<DetailsHotel/>} />

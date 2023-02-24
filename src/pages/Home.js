@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Container } from "react-bootstrap";
 
 import CardDestination from "../components/CardDestination";
@@ -10,23 +10,70 @@ import RecipeReviewCard from "../components/CardHotel";
 import CarteAgence from "../components/CarteAgence";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllHotels } from "../redux/actions/hotelActions";
+import { fetchAllCollection } from "../redux/actions/allCollectionActionCreators";
 
 function Home() {
   const dispatch = useDispatch();
   const allHotels = useSelector((state) => state.hotels.all);
+  // const inputRef = useRef(null);
+  // const inputRefKey = useRef(null);
+  // const hotels = useSelector((state) => state.hotels.all);
+  // const packs = useSelector(state=> state.packs.all)
+  // const collections = useSelector((state) => state.collections.all);
+
+  // const [filtredData, setDataFiltered] = useState(collections);
+  console.log("=====================================");
+ 
+  // useEffect(() => {
+  //   if (collections) {
+  //     dispatch(fetchAllCollection());
+  //   }
+  // }, []);
+ 
 
   useEffect(() => {
     if (allHotels) {
       dispatch(fetchAllHotels());
     }
   }, []);
+  // console.log(filtredData);
+  // const handleSearch = (e) => {
+  //   e.preventDefault();
+  //   let value = inputRef.current.value.toLowerCase();
+  //   // let valueKey = inputRefKey.current.toLowerCase()
+  //   console.log("==========================");
+
+  //   let resultHotel = collections.hotel.filter((data) =>
+  //     data.country.toLowerCase().includes(value)
+  //   );
+  //   let resultPack = collections.pack.filter((data) =>
+  //     data.country.toLowerCase().includes(value)
+  //   );
+  //   let resultEvent = collections.event.filter((data) =>
+  //     data.country.toLowerCase().includes(value)
+  //   );
+
+    console.log("=====================================");
+    // console.log(result);
+  //   setDataFiltered((prevState) => ({
+  //     ...prevState,
+  //     hotel: resultHotel,
+  //     pack: resultPack,
+  //     event: resultEvent,
+  //   }));
+
+  // };
 
   return (
     <div>
       <div className=" body-home">
         <div className="bg-home ">
           <Container style={{ height: "90%" }}>
-            <Pub />
+            {/* <Pub 
+              inputRef={inputRef}
+              handleSearch={handleSearch}
+              inputRefKey={inputRefKey}
+            /> */}
           </Container>
         </div>
         <Container className="text-service m-5">

@@ -1,13 +1,7 @@
 
-.search-bar-page {
-  position: relative;
- right: 7rem;
-  width: 100vw;  
-  background-color: white;
- 
-}
 
 .bg-bar-page {
+  width: 100vw;  
   padding: 20px;
   height: 100px;
   background-color:#2B3A55 ;
@@ -91,20 +85,24 @@
   }
 }
 
-@media  screen and (max-width:576px) {
-/* .search-bar-hotel {
-  max-height: 100%;
-  height: auto;
-  width: 100%;
-  border: 2px solid  #2B3A55 !important;
-  display: grid;
-  margin: 10rem 0 0 2rem;
-  grid-template-columns: 100% ;
-  grid-template-rows: 150px;
-  margin-bottom: 2rem;
+@media  screen and (max-width:766px) {
+  .bg-bar-page {
+    width: 100vw;  
+    padding: 20px;
+    height: 200px;
+    background-color:#2B3A55 ;
+  }
+  .textSearch{
+    width: 200px!important;
+  }
+  
 }
-.filter-style{
-  padding-bottom:12rem ;
-} */
+@media  screen and (max-width:576px) {
+  .bg-bar-page {
+    width: 100vw;  
+    padding: 20px;
+    height: 200px;
+    background-color:#2B3A55 ;
+  }
   
 }

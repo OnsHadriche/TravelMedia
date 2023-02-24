@@ -7,6 +7,7 @@ import "../styles/Addroom.css";
 function AddRooms() {
   // const [numRoom, setNumRoom] = useState(1);
   const [addComponents, setAddComponent] = useState([{ numberRoom: 1 }]);
+  const [command, setCommand] = useState([])
   // const [addComponents, setAddComponent] = useState([
   //   <RoomAndGuests numberRoom={numRoom} />,
   // ]);

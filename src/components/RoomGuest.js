@@ -12,8 +12,9 @@ import CloseIcon from "@mui/icons-material/Close";
 function RoomAndGuests(props) {
   const numberOfChildren = [0, 1, 2, 3, 4];
   const [nbChilds, setNbChilds] = useState(0);
+  const [nbAdult, setNbAdult] = useState(0);
   const [age, setAge] = useState(0);
-
+  const [commandList, setCommandlist]= useState([])
   const handleChange = (event) => {
     setNbChilds(event.target.value);
   };
@@ -33,7 +34,9 @@ function RoomAndGuests(props) {
             <OutlinedInput
               id="outlined-adornment-password"
               type="text"
-              value={0}
+              value={nbAdult}
+              onChange = {(event)=>  setNbAdult(event.target.value)}
+
               endAdornment={
                 <InputAdornment position="end">
                   <IconButton
