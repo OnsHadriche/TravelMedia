@@ -88,7 +88,7 @@ export const fetchPackByAgency = (id) => {
     }
   };
 };
-export const requestCreatePackage = (data, navigate,id) => {
+export const requestCreatePackage = (data, history,id) => {
   return async (dispatch, getState) => {
     const state = getState();
     const token = state.user.token;
@@ -106,7 +106,7 @@ export const requestCreatePackage = (data, navigate,id) => {
       console.log(res.data)
       if (res.data && res.data.pack && res.data.pack._id) {
         dispatch(addPack({ ...data, _id: res.data.pack._id }));
-        navigate("/packages");
+        history.push("/package");
       }
     } catch (error) {
       dispatch(requestFailed(error));

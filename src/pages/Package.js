@@ -43,7 +43,7 @@ function Package() {
   };
   return (
     <>
-      <Container style={{ height: "100%" }}>
+      <Container style={{ height: "100%" , marginBottom: "2rem"}}>
         <div>
           <SearchBarPack />
 
