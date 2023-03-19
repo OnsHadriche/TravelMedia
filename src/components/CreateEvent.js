@@ -1,6 +1,6 @@
 import { React, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import "../styles/CreateItem.css";
@@ -8,7 +8,7 @@ import { requestCreatingNewEvent } from "../redux/actions/eventActionCreator";
 
 function CreateEvent() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const history = useHistory();
   const inputFileRef = useRef();
   const { id } = useParams();
   const [title, setTitleEvent] = useState(" ");
@@ -40,7 +40,7 @@ function CreateEvent() {
     formData.append("details", details);
     formData.append("category", category);
     formData.append("expiredAt", expiredAt);
-    dispatch(requestCreatingNewEvent(formData, id, navigate));
+    dispatch(requestCreatingNewEvent(formData, id, history));
   };
   const handleChange = (e) => {
     const newFile = e.target.files[0];

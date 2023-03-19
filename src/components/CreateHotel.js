@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useHistory, useNavigate, useParams } from "react-router-dom";
 
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -11,7 +11,7 @@ import { useRef } from "react";
 
 function CreateHotel() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const history = useHistory();
   const { id } = useParams();
   const inputFileRef = useRef();
   const [title, setTitle] = useState(" ");
@@ -34,7 +34,7 @@ function CreateHotel() {
     formData.append("details", details);
     formData.append("star", star);
     formData.append("rooms", rooms);
-    dispatch(requestCreatingHotel(formData, id, navigate));
+    dispatch(requestCreatingHotel( id,formData, history));
   };
 
   const handleChange = (e) => {
