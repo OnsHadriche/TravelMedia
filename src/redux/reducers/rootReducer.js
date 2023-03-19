@@ -11,6 +11,7 @@ import { packageReducer } from "./packageReducer";
 import { userReducer } from "./userReducer";
 import { categoryReducer } from "./categoryReducer";
 import { allCollectionsReducer } from "./allCollectionReducer";
+import { ratingReviewReducer } from "./reviewRatingReducer";
 
 export const rootReducer = combineReducers({
   user: userReducer,
@@ -21,5 +22,5 @@ export const rootReducer = combineReducers({
   pages: pageReducer,
   category: categoryReducer,
   collections: allCollectionsReducer,
-  // reviews : ratingByUserReducer
+  reviews : ratingReviewReducer
 });
