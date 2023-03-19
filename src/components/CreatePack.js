@@ -1,32 +1,59 @@
 import { React, useState } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useHistory, useNavigate, useParams } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import { requestCreatePackage } from "../redux/actions/packageActionCreators";
 import "../styles/CreateItem.css"
+import { useRef } from "react";
 
 function CreatePack() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const history = useHistory();
   const { id } = useParams();
-  const [packData, setPackData] = useState({
-    photo: " ",
-    title: " ",
-    price: " ",
-    country: " ",
-    details: " ",
-    expiredAt: " ",
-  });
+  const inputFileRef = useRef();
+  const [title, setTitle] = useState(" ");
+  const [country, setCountry] = useState(" ");
+  const [price, setPrice] = useState(" ");
+  const [file, setFile] = useState(null);
+  const [details, setDetails] = useState(" ");
+  const [expiredAt, setExpiredAt] = useState(" ")
+ 
+  // const [packData, setPackData] = useState({
+  //   photo: " ",
+  //   title: " ",
+  //   price: " ",
+  //   country: " ",
+  //   details: " ",
+  //   expiredAt: " ",
+  // });
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   dispatch(requestCreatePackage(packData, history, id));
+  // };
+  // const handleChange = (e) => {
+  //   setPackData((prevPackData) => ({
+  //     ...prevPackData,
+  //     [e.target.name]: e.target.value,
+  //   }));
+  // };
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(requestCreatePackage(packData, navigate, id));
+    const formData = new FormData();
+    
+    formData.append("image", file);
+    formData.append("title", title);
+    formData.append("price", price);
+    formData.append("country", country);
+    formData.append("details", details);
+    formData.append("expiredAt", expiredAt);
+ 
+    dispatch(requestCreatePackage( formData, history,id));
   };
+
   const handleChange = (e) => {
-    setPackData((prevPackData) => ({
-      ...prevPackData,
-      [e.target.name]: e.target.value,
-    }));
+    const newFile = e.target.files[0];
+    setFile(newFile);
   };
   return (
     <Container className="mt-3 flex-grow-1 p-3">
@@ -37,8 +64,9 @@ function CreatePack() {
             <Form.Label>Title</Form.Label>
             <Form.Control
               name="title"
-              value={packData.title}
-              onChange={handleChange}
+              value={title}
+              onChange={(e)=>setTitle(e.target.value)}
+              
             />
           </Form.Group>
 
@@ -47,8 +75,9 @@ function CreatePack() {
             <Form.Control
               name="country"
               type="text"
-              value={packData.country}
-              onChange={handleChange}
+              value={country}
+              onChange={(e)=>setCountry(e.target.value)}
+              
             />
           </Form.Group>
         </div>
@@ -58,8 +87,9 @@ function CreatePack() {
             <Form.Control
               name="expiredAt"
               type="date"
-              value={packData.expiredAt}
-              onChange={handleChange}
+              value={expiredAt}
+              onChange={(e)=>setExpiredAt(e.target.value)}
+              
             />
           </Form.Group>
           <Form.Group className="mb-3 col">
@@ -67,8 +97,9 @@ function CreatePack() {
             <Form.Control
               name="price"
               type="number"
-              value={packData.price}
-              onChange={handleChange}
+              value={price}
+              onChange={(e)=>setPrice(e.target.value)}
+              
             />
           </Form.Group>
         </div>
@@ -76,8 +107,10 @@ function CreatePack() {
           <Form.Label>Photo</Form.Label>
           <Form.Control
             name="photo"
-            value={packData.photo}
+            ref={inputFileRef}
             onChange={handleChange}
+            type="file"
+            accept="image/*"
           />
         </Form.Group>
 
@@ -87,8 +120,9 @@ function CreatePack() {
             as="textarea"
             rows={3}
             name="details"
-            value={packData.details}
-            onChange={handleChange}
+            value={details}
+            onChange={(e)=>setDetails(e.target.value)}
+            
           />
         </Form.Group>
 
