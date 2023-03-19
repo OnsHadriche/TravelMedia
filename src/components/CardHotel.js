@@ -22,11 +22,11 @@ console.log(typeof(props.star))
 
   return (
     <>
-      <Card sx={{ maxWidth: 300 }}>
+      <Card sx={{ maxWidth: 600 }}>
         <CardHeader
           avatar={
-            <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-              {props.page?.title[0]}
+            <Avatar sx={{ bgcolor: indigo[600] }} aria-label="recipe">
+              {props.page?.title[1]}
             </Avatar>
           }
           title={props.page?.title}

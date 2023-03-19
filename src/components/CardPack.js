@@ -51,11 +51,13 @@ export default function CardPack(props) {
                 {props.packCountry}
               </Typography>
             </Typography>
+            <Typography variant="body2" color="text.secondary">
             <Typography variant="h6" style={{ fontSize: "0.8rem" }} className="d-flex align-items-center">
               <CalendarTodayIcon
                 style={{ color: colorLocation, fontSize: "20px" }}
               />
               Deadline: {dateFin}{" "}
+            </Typography>
             </Typography>
           </div>
         </CardContent>
