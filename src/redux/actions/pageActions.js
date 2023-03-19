@@ -64,7 +64,7 @@ export const getPageById = (id) => {
     }
   };
 };
-export const requestCreatingNewPage = (data) => {
+export const requestCreatingNewPage = (data,history) => {
   return async (dispatch, getState) => {
     const state = getState();
     const token = state.user.token;
@@ -81,7 +81,7 @@ export const requestCreatingNewPage = (data) => {
       dispatch(requestSucceeded());
       if (res.data && res.data.page && res.data.page._id) {
         dispatch(addNewPage({ ...data, _id: res.data.page._id }));
-
+        history.push("/");
       }
     } catch (error) {
       dispatch(requestFailed(error));
