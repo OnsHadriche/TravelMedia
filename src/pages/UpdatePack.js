@@ -1,35 +1,37 @@
 import { React, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
-import { getPackById, requestUpdatePack } from "../redux/actions/packageActionCreators";
+import {
+  getPackById,
+  requestUpdatePack,
+} from "../redux/actions/packageActionCreators";
 function UpdatePack() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const history = useHistory();
   const selectPack = useSelector((state) => state.packs.selected);
   console.log(selectPack);
   const { id } = useParams();
   const [updatePack, setUpdatePack] = useState({
-    photo: " ",
-    title: " ",
-    price: " ",
-    country: " ",
-    details: " ",
-    expiredAt:" "
+    title: selectPack?.title,
+    price: selectPack?.price,
+    country: selectPack?.country,
+    details: selectPack?.details,
+    expiredAt: selectPack?.expiredAt,
   });
 
+  useEffect(() => {
+    dispatch(getPackById(id));
+  }, [dispatch, id]);
   useEffect(() => {
     if (selectPack) {
       setUpdatePack(selectPack);
     }
   }, [selectPack]);
 
-  useEffect(() => {
-    dispatch(getPackById(id));
-  }, [dispatch, id]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -38,7 +40,7 @@ function UpdatePack() {
       requestUpdatePack(
         id,
         { expiredAt, title, price, country, details },
-        navigate
+        history
       )
     );
   };
@@ -48,10 +50,11 @@ function UpdatePack() {
       [e.target.name]: e.target.value,
     }));
   };
+  console.log(selectPack)
   return (
     <div>
       <Container className="mt-3">
-        <h1>Update information of hotel</h1>
+        <h1>Update information of package</h1>
         <Form onSubmit={handleSubmit}>
           <div className="row">
             <Form.Group className="mb-3 col">
@@ -72,14 +75,14 @@ function UpdatePack() {
               />
             </Form.Group>
             <Form.Group className="mb-3 col">
-            <Form.Label>Finale Date</Form.Label>
-            <Form.Control
-              name="expiredAt"
-              type="date"
-              value={updatePack.expiredAt}
-              onChange={handleChange}
-            />
-          </Form.Group>
+              <Form.Label>Finale Date</Form.Label>
+              <Form.Control
+                name="expiredAt"
+                type="date"
+                value={updatePack.expiredAt}
+                onChange={handleChange}
+              />
+            </Form.Group>
           </div>
           <div className="row">
             <Form.Group className="mb-3 col">

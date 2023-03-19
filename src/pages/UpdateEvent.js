@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useHistory, useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import "../styles/CreateItem.css";
 import Button from "react-bootstrap/Button";
@@ -10,17 +10,17 @@ import { getEventById, requestUpdateEvent } from "../redux/actions/eventActionCr
 import { useRef } from "react";
 function UpdateEvent() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const history= useHistory();
   const selectEvent = useSelector((state) => state.events.selected);
   console.log(selectEvent);
   const { id } = useParams();
   const [updateEvent, setUpdateEvent] = useState({
-    title: " ",
-    price: " ",
-    country: " ",
-    details: " ",
-    category: " ",
-    expiredAt: " "
+    title: selectEvent?.title,
+    price: selectEvent?.price,
+    country: selectEvent?.country,
+    details: selectEvent?.details,
+    category:selectEvent?.category,
+    expiredAt: selectEvent?.expiredAt
   });
   const inputFileRef = useRef();
   const [file, setFile] = useState(selectEvent?.image);
@@ -41,7 +41,7 @@ function UpdateEvent() {
     e.preventDefault();
     const { title, price, country, details , category, expiredAt} = updateEvent;
     dispatch(
-      requestUpdateEvent(id, { category,expiredAt, title, price, country, details }, navigate)
+      requestUpdateEvent(id, { category,expiredAt, title, price, country, details }, history)
     );
   };
   const handleChange = (e) => {

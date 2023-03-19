@@ -94,7 +94,7 @@ export const fetchEventByPage = (id) => {
     }
   };
 };
-export const requestCreatingNewEvent = (data, id, navigate) => {
+export const requestCreatingNewEvent = (data, id, history) => {
   return async (dispatch, getState) => {
     const state = getState();
     const token = state.user.token;
@@ -112,14 +112,14 @@ export const requestCreatingNewEvent = (data, id, navigate) => {
       console.log(res.data);
       if (res.data && res.data.event && res.data.event._id) {
         dispatch(addNewEvent({ ...data, _id: res.data.event._id }));
-        navigate(`/page/${id}`);
+        history.push("/events");
       }
     } catch (error) {
       dispatch(requestFailed(error));
     }
   };
 };
-export const requestUpdateEvent = (id, data, navigate) => {
+export const requestUpdateEvent = (id, data, history) => {
   return async (dispatch, getState) => {
     const state = getState();
     const token = state.user.token;
@@ -137,7 +137,7 @@ export const requestUpdateEvent = (id, data, navigate) => {
       dispatch(requestSucceeded());
       if (res.data && res.data.message) {
         alertSuccess(res.data.message);
-        navigate("/events");
+        history.push("/events");
       }
       dispatch(updateEvent(id, data));
     } catch (error) {

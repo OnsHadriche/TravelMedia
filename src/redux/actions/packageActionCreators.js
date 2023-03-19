@@ -25,7 +25,6 @@ export const selectPackege = (pack) => ({
 export const selectPackageByAgency = (packData) => ({
   type: SELECT_PACKAGE_AGENCY,
   payload: packData,
-
 });
 export const removePack = (packId) => ({
   type: REMOVE_PACKAGE,
@@ -49,8 +48,8 @@ export const getAllPack = () => {
     try {
       const res = await axios.get(`${process.env.REACT_APP_API_URL}/packs`);
       dispatch(requestSucceeded());
-      const packages = res.data
-      console.log(res.data)
+      const packages = res.data;
+      console.log(res.data);
       dispatch(setAllPackages(packages));
     } catch (error) {
       dispatch(requestFailed(error));
@@ -58,11 +57,15 @@ export const getAllPack = () => {
   };
 };
 export const getPackById = (id) => {
-  return async (dispatch) => {
+  return async (dispatch, getState) => {
+    const state = getState();
+    const token = state.user.token;
+
     dispatch(requestStarted());
     try {
       const res = await axios.get(
-        `${process.env.REACT_APP_API_URL}/packs/${id}`
+        `${process.env.REACT_APP_API_URL}/packs/${id}`,
+        { headers: { authorization: token } }
       );
       dispatch(requestSucceeded());
       const pack = res.data;
@@ -74,21 +77,22 @@ export const getPackById = (id) => {
 };
 export const fetchPackByAgency = (id) => {
   return async (dispatch, getState) => {
-    const state = getState()
-    const token = state.user.token
+    const state = getState();
+    const token = state.user.token;
     dispatch(requestStarted());
     try {
       const res = await axios.get(
-        `${process.env.REACT_APP_API_URL}/packs/pack-created-page/${id}`, {headers:{authorization: token}}
-      );      
-      dispatch(requestSucceeded())
-      dispatch(selectPackageByAgency(res.data))
+        `${process.env.REACT_APP_API_URL}/packs/pack-created-page/${id}`,
+        { headers: { authorization: token } }
+      );
+      dispatch(requestSucceeded());
+      dispatch(selectPackageByAgency(res.data));
     } catch (error) {
       dispatch(requestFailed(error));
     }
   };
 };
-export const requestCreatePackage = (data, history,id) => {
+export const requestCreatePackage = (data, history, id) => {
   return async (dispatch, getState) => {
     const state = getState();
     const token = state.user.token;
@@ -103,7 +107,7 @@ export const requestCreatePackage = (data, history,id) => {
       if (res.data && res.data.message) {
         alertSuccess(res.data.message);
       }
-      console.log(res.data)
+      console.log(res.data);
       if (res.data && res.data.pack && res.data.pack._id) {
         dispatch(addPack({ ...data, _id: res.data.pack._id }));
         history.push("/package");
@@ -148,7 +152,7 @@ export const requestDeletePack = (packId, closeModal) => {
         alertSuccess(res.data.message);
       }
       dispatch(removePack(packId));
-      closeModal()
+      closeModal();
     } catch (error) {
       dispatch(requestFailed(error));
     }

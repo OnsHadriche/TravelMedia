@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
 import Form from "react-bootstrap/Form";
@@ -11,18 +11,17 @@ import {
 } from "../redux/actions/hotelActions";
 function UpdateHotel() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const history = useHistory();
   const selectHotel = useSelector((state) => state.hotels.selected);
   console.log(selectHotel);
   const { id } = useParams();
   const [updateHotel, setUpdateHotel] = useState({
-    photo: " ",
-    title: " ",
-    price: " ",
-    country: " ",
-    details: " ",
-    rooms: " ",
-    star: " ",
+    title: selectHotel?.hotel?.title,
+    price: selectHotel?.hotel?.price,
+    country: selectHotel?.hotel?.country,
+    details: selectHotel?.hotel?.details,
+    rooms: selectHotel?.hotel?.rooms,
+    star: selectHotel?.hotel?.star,
   });
 
   useEffect(() => {
@@ -42,7 +41,7 @@ function UpdateHotel() {
       requestUpdateHotel(
         id,
         { star, rooms, title, price, country, details },
-        navigate
+        history
       )
     );
   };
