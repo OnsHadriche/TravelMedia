@@ -19,13 +19,13 @@ function Hotels() {
   const userId = info && info._id;
   const [modalShowLogin, setModalShowLogin] = useState(false);
   const [value, setValue]= useState()
-  const [valueInput, setValueInput]= useState(" ")
+  const [valueInput, setValueInput]= useState()
   // const inputRef = useRef(null);
   // const inputRefKey = useRef(null);
+  
   const [filtredData, setDataFiltered] = useState(allHotels);
-
   console.log(filtredData);
-
+  
   useEffect(() => {
     if (allHotels) {
       dispatch(fetchAllHotels());
@@ -64,32 +64,30 @@ function Hotels() {
   
 
     console.log("=====================================");
-    setDataFiltered((prevState) => ({
-      ...prevState,
-      hotel: resultHotel,
-      
-    }));
+    console.log(resultHotel)
+    setDataFiltered(
+       resultHotel);
 
   };
-  console.log(filtredData);
+  console.log({"test": filtredData});
   return (
     <>
-    <div className="bg-hotel mt-3 mx-3">
-      <div className="row align-items-centers gy-2 ">
+    <div className="bg-hotel d-fle mt-3 mx-3">
+      <div className=" row align-items-centers  ">
         <div
           style={styleHotel}
-          className="col-lg-4 col-md-4 col-sm-12 search-hotel"
+          className=" search-hotel col-lg-2 col-sm-2 col-md-4"
         >
           <SearchHotel handleSearch ={handleSearch} handleChange = {handleChange} valueInput = {valueInput}/>
         </div>
         <div
           style={styleHotelCard}
-          className="col-lg-8 col-md-8 col-sm-12 style-margin mb-5"
+          className=" col-lg-10 col-md-8 col-sm-8 style-margin mb-5"
         >
-          <Container >
+          <Container  >
             <div className="row gy-2">
-              {allHotels?.map((hotel) => (
-                <div className="col-4  col-sm-8 col-md-5" >
+              {filtredData?.map((hotel) => (
+                <div className="col-12 col-sm-7 col-md-8" >
                   <CardHotel
                   isAuth = {isAuth}
                   userId ={userId}

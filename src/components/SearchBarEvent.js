@@ -5,7 +5,7 @@ import "../styles/SearchBarPage.css";
 
 import { Container } from "react-bootstrap";
 
-function SearchBarPage() {
+function SearchBarPage(props) {
   return (
 
       <Container className="bg-bar-page  ">
@@ -16,6 +16,8 @@ function SearchBarPage() {
                 label="choose your destination"
                 variant="outlined"
                 sx={{ m: 1}}
+                value={props.valueInput}
+                onChange={props.handleChange}
               />
               <TextField
                 id="outlined-basic"
@@ -26,7 +28,7 @@ function SearchBarPage() {
             </div>
   
           <div>
-          <button class="button-75" role="button" ><span class="text">Search</span></button>
+          <button class="button-75" role="button" onClick={props.handleSearch}><span class="text">Search</span></button>
 
           </div>
         </div>

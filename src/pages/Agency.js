@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import CardPage from "../components/CardPage";
 import Login from "../components/ModalLogin";
 import SearchBarPage from "../components/SearchBarPage";
@@ -12,7 +12,7 @@ import "../styles/hotelStyle.css";
 
 function Agency() {
     const dispatch = useDispatch();
-    const navigate = useNavigate();
+    const history = useHistory();
     const [value, setValue]= useState()
 
   const allAgency =  useSelector((state) => state.pages.all);
@@ -32,7 +32,7 @@ function Agency() {
 
 const handleClicDetails = (id) => {
     if (isAuth) {
-        return navigate(`/page/${id}`);
+        return history.push(`/page/${id}`);
     } else {
       return setModalShowLogin(true);
     }

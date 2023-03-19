@@ -13,8 +13,9 @@ function Package() {
   const dispatch = useDispatch();
   const history = useHistory();
   const [value, setValue] = useState();
-
   const allPacks = useSelector((state) => state.packs.all);
+  const [valueInput, setValueInput] = useState();
+  const [filtredData, setDataFiltered] = useState(allPacks);
 
   const { isAuth, info } = useSelector((state) => state.user);
 
@@ -26,15 +27,31 @@ function Package() {
       dispatch(getAllPack());
     }
   }, []);
+  const handleChange = (e) => {
+    setValueInput(e.target.value);
+  };
 
   const handleClicDetails = (id) => {
     if (isAuth) {
-      return history.push(`/event/${id}`);
+      return history.push(`/package/${id}`);
     } else {
       return setModalShowLogin(true);
     }
   };
+  const handleSearch = (e) => {
+    e.preventDefault();
+    // let valueKey = inputRef.current.value.toLowerCase();
+    // let valueKey = inputRefKey.current.toLowerCase()
+    console.log("==========================");
 
+    let resultHotel = allPacks.filter((data) =>
+      data.country.toLowerCase().includes(valueInput.toLowerCase())
+    );
+
+    console.log("=====================================");
+    console.log(resultHotel);
+    setDataFiltered(resultHotel);
+  };
   const styleHotel = {
     marginTop: "-6rem",
   };
@@ -45,12 +62,12 @@ function Package() {
     <>
       <Container style={{ height: "100%" , marginBottom: "2rem"}}>
         <div>
-          <SearchBarPack />
+          <SearchBarPack handleSearch={handleSearch} handleChange={handleChange} valueInput={valueInput} />
 
           <div style={styleHotelCard}>
             <Container>
               <div className="row gy-2">
-                {allPacks?.map((pack) => (
+                {filtredData?.map((pack) => (
                   <div className="col-4 col-sm-6 col-md-4">
                     <CardPack
                       isAuth={isAuth}
