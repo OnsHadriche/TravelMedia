@@ -59,7 +59,7 @@ export const requestLogin = (email, password) => {
   };
 };
 
-export const requestRegister = (data, navigate) => {
+export const requestRegister = (data, history) => {
   return async (dispatch) => {
     dispatch(requestStarted());
     try {
@@ -71,7 +71,7 @@ export const requestRegister = (data, navigate) => {
       if (res.data.message) {
         alertSuccess(res.data.message);
       }
-      navigate("/");
+      history.push("/");
     } catch (error) {
       dispatch(requestFailed(error));
     }

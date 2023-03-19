@@ -97,7 +97,7 @@ export const fetchHotelByIdPage = (id) => {
     }
   };
 };
-export const requestCreatingHotel = (PageId, data, navigate) => {
+export const requestCreatingHotel = (PageId, data, history) => {
   return async (dispatch, getState) => {
     const state = getState();
     const token = state.user.token;
@@ -117,14 +117,14 @@ export const requestCreatingHotel = (PageId, data, navigate) => {
       console.log(res.data);
       if (res.data && res.data.hotel && res.data.hotel._id) {
         dispatch(createHotel({ ...data, _id: res.data.hotel._id }));
-        navigate("/");
+        history.push("/");
       }
     } catch (error) {
       dispatch(requestFailed(error));
     }
   };
 };
-export const requestUpdateHotel = (id, data, navigate) => {
+export const requestUpdateHotel = (id, data, history) => {
   return async (dispatch, getState) => {
     const state = getState();
     const token = state.user.token;
@@ -145,7 +145,7 @@ export const requestUpdateHotel = (id, data, navigate) => {
         alertSuccess(res.data.message);
       }
       dispatch(updateHotel(id, data));
-      navigate("/")
+      history.push("/")
     } catch (error) {
       dispatch(requestFailed(error));
     }
@@ -179,7 +179,7 @@ export const addRatingToHotel = (id, data) => {
     const token = state.user.token;
     try {
       dispatch(requestStarted());
-      const res = await axios.post(
+      const res = await axios.put(
         `${process.env.REACT_APP_API_URL}/hotels/add-rating-hotel/${id}`,
         data,
         { headers: { authorization: token } }

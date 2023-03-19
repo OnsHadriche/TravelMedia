@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import CardEvent from "../components/CardEvent";
 import Login from "../components/ModalLogin";
 import SearchBarEvent from "../components/SearchBarEvent";
@@ -11,7 +11,7 @@ import "../styles/hotelStyle.css";
 
 function Event() {
     const dispatch = useDispatch();
-    const navigate = useNavigate();
+    const history = useHistory();
     const [value, setValue]= useState()
 
   const allEvent =  useSelector((state) => state.events.all);
@@ -31,7 +31,7 @@ function Event() {
 
 const handleClicDetails = (id) => {
     if (isAuth) {
-        return navigate(`/event/${id}`);
+        return history.push(`/event/${id}`);
     } else {
       return setModalShowLogin(true);
     }

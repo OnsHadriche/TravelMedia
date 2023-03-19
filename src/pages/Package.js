@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import CardPack from "../components/CardPack";
 
 import Login from "../components/ModalLogin";
@@ -11,7 +11,7 @@ import "../styles/hotelStyle.css";
 
 function Package() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const history = useHistory();
   const [value, setValue] = useState();
 
   const allPacks = useSelector((state) => state.packs.all);
@@ -29,7 +29,7 @@ function Package() {
 
   const handleClicDetails = (id) => {
     if (isAuth) {
-      return navigate(`/event/${id}`);
+      return history.push(`/event/${id}`);
     } else {
       return setModalShowLogin(true);
     }

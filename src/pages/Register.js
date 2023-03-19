@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -17,7 +17,7 @@ import { alertError } from "../utils/feedback";
 
 function Register() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const history = useHistory();
   const [showPassword, setShowPassword] = useState(false);
   const [showPasswordConfirm, setShowPasswordConfirm] = useState(false);
   const [file, setFile] = useState(null);
@@ -71,7 +71,7 @@ function Register() {
     formData.append("password", password);
     console.log(formData);
     console.log(confirmPassword);
-    dispatch(requestRegister(formData, navigate));
+    dispatch(requestRegister(formData, history));
   };
 
   return (
