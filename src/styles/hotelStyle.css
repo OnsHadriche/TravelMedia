@@ -11,33 +11,44 @@
   background-size: 100% 100%;
   
 } */
+.style-margin{
+  position: relative;
+  right: auto;
+  left:120px;
+}
 @media screen and (max-width:760px ) {
   .style-margin{
-    margin-left: 1.5rem;
-    position: relative;
-    top: -110px;
-    right: 5%;
-  }
-  
+ margin-left: 5em;
+  } 
 }
+
 @media screen and (max-width:576px ) {
-  .style-margin{
-    margin-left: 1.5rem;
-    position: relative;
-    top: 190px;
-    right: 5%;
+  .bg-hotel{
+    background-color: transparent;
   }
-  
-}
-@media screen and (max-width:472px ) {
   .search-hotel{
-    margin-right: -20px;
+    position: relative;
+    left: -50px;
   }
   .style-margin{
-    margin-left: 1.5rem;
+    
     position: relative;
-    top: 300px;
-    right: 5%;
+    top: 400px;
+    left: -50px!important;
+     
+  }
+}
+
+@media screen and (max-width:480px ) {
+  .search-hotel{
+    position: relative;
+    left: -30px;
+  }
+  .style-margin{
+   
+    position: relative;
+    top: 500px;
+    left: -10px;
   }
   
 }

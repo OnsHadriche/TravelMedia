@@ -8,3 +8,34 @@
 h5{
     color: #B20600;
 }
+.check-hotel  {
+    border: none;
+    padding: 10px 20px;
+    background-color: #0c3450;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+.check-review   {
+    border: none;
+    padding: 10px 20px;
+    background-color: #0c3450;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 170px;
+  }
+.btn-valide{
+    color: #072133 ;
+    background-color: transparent;
+    border: none;
+    font-size: 50px;
+}
+.btn-cancel{
+    color: rgb(141, 13, 13) ;
+    background-color: transparent;
+    border: none;
+    font-size: 50px;
+}
