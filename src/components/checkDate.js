@@ -15,7 +15,7 @@ const useStyles = makeStyles()((theme) => ({
   },
 }));
 
-function DateRangePicker() {
+function DateRangePicker(props) {
   const classes = useStyles();
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);

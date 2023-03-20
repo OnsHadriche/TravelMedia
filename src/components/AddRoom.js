@@ -4,19 +4,28 @@ import { GrAddCircle } from "react-icons/gr";
 import { TiDelete } from "react-icons/ti";
 import RoomAndGuests from "./RoomGuest";
 import "../styles/Addroom.css";
-function AddRooms() {
+function AddRooms(props) {
   // const [numRoom, setNumRoom] = useState(1);
   const [addComponents, setAddComponent] = useState([{ numberRoom: 1 }]);
   const [command, setCommand] = useState([])
+
+  const [dataFromChild, setDataFromChild] = useState(null);
   // const [addComponents, setAddComponent] = useState([
   //   <RoomAndGuests numberRoom={numRoom} />,
   // ]);
-
+  const handleDataFromChild = (dataAdult, dataChildren)=>{
+    setDataFromChild(dataAdult,dataChildren)
+  }
   const handleClickAdd = () => {
     setAddComponent((prev) => [
       ...prev,
       { numberRoom: addComponents.length + 1 },
     ]);
+    setCommand((prev)=>[
+      ...prev,
+      {nbAdult:dataFromChild.dataAdult,nbChild: dataFromChild.dataChildren}
+    ])
+    sendToDetailsHotel()
   };
   // const handleClickAdd = () => {
   //   setNumRoom((prevRoom) => prevRoom + 1);
@@ -35,16 +44,20 @@ function AddRooms() {
       });
     }
   };
+  const sendToDetailsHotel = ()=>{
+    props.onDataHotel(command)
+  }
   useEffect(() => {
     console.log("welcom");
   }, []);
+  console.log(command)
 
   return (
     <div className="row ">
       <div className="col ">
         {addComponents.map((room, index) => (
           <>
-            <RoomAndGuests numberRoom={room.numberRoom} key={index} />
+            <RoomAndGuests numberRoom={room.numberRoom} key={index} onData = {handleDataFromChild}/>
           </>
         ))}
       </div>

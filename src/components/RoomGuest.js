@@ -9,15 +9,22 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import TextField from "@mui/material/TextField";
 import CloseIcon from "@mui/icons-material/Close";
+import { Button } from "react-bootstrap";
 function RoomAndGuests(props) {
   const numberOfChildren = [0, 1, 2, 3, 4];
   const [nbChilds, setNbChilds] = useState(0);
   const [nbAdult, setNbAdult] = useState(0);
   const [age, setAge] = useState(0);
-  const [commandList, setCommandlist]= useState([])
+
   const handleChange = (event) => {
     setNbChilds(event.target.value);
   };
+  const sendToAddRoom =()=>{
+    let dataAdult = nbAdult
+
+    let dataChildren = nbChilds
+    props.onData({dataAdult,dataChildren})
+  }
   useEffect(() => {});
 
   return (
@@ -172,6 +179,7 @@ function RoomAndGuests(props) {
               return <div> </div>;
           }
         })()}
+        <Button onClick={sendToAddRoom}>Ok</Button>
       </div>
     </>
   );

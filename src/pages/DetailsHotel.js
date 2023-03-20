@@ -130,7 +130,7 @@ function DetailsHotel() {
         >
           <div className="col-md-6 text-center">
             <img
-              src={img6}
+              src={selectHotel?.hotel.image}
               alt="test"
               className="img-fluid"
               style={style_Slider}

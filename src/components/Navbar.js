@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../redux/actions/userActionCreators";
 
@@ -25,7 +25,7 @@ function Navbar() {
   const dispatch = useDispatch();
   const [modalShowLogin, setModalShowLogin] = useState(false);
   const { isAuth } = useSelector((state) => state.user);
-  const navigate = useNavigate();
+  const history = useHistory();
   const allPages = useSelector((state) => state.pages.all);
   const [showOff, setShowOff] = useState(false);
 
@@ -45,10 +45,9 @@ function Navbar() {
     flexShrink: 0,
     width: 56,
     height: 22,
+
   };
-  const styleShop = {
-    color:"#d81d27"
-  }
+
   const linksNav = [
     {
       title: "Profile",
@@ -111,13 +110,13 @@ function Navbar() {
                 Events
               </NavLink>
               {isAuth ? (
-                <NavLink>
+                <NavLink to = "#">
                   <button
                     className="nav-link"
                     style={{border: "none", backgroundColor:"White"}}
                     onClick={handleShowOff}
                   >
-                    <BsShop style={styleIcon , styleShop}  />
+                    <BsShop style={styleIcon , {color:"#d81d27"} } />
                     
                   </button>
                 </NavLink>

@@ -14,14 +14,11 @@ function Agency() {
     const dispatch = useDispatch();
     const history = useHistory();
     const [value, setValue]= useState()
-
   const allAgency =  useSelector((state) => state.pages.all);
- 
-
   const { isAuth, info } = useSelector((state) => state.user);
 
   const userId = info && info._id;
-  const [modalShowLogin, setModalShowLogin] = useState(false);
+
   
   useEffect(() => {
       if (allAgency) {
@@ -30,13 +27,7 @@ function Agency() {
 },[]);
 
 
-const handleClicDetails = (id) => {
-    if (isAuth) {
-        return history.push(`/page/${id}`);
-    } else {
-      return setModalShowLogin(true);
-    }
-};
+
 
 console.log(allAgency);
 
@@ -67,7 +58,7 @@ return (
                   PageContact={page.contact}
                   id ={page._id}
                   PageCountry = {page.country}
-                  handleClicDetails={handleClicDetails}
+               
                   // isLiked={favColor}
                   value ={value}
                   
@@ -79,7 +70,6 @@ return (
         </div>
       </div>
     </Container>
-    <Login show={modalShowLogin} onHide={() => setModalShowLogin(false)} />
 
     </>
   );
