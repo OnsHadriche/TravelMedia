@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Agency from "./pages/Agency";
 import CreatePageAgency from "./pages/CreatePageAgency";
@@ -37,29 +37,30 @@ function App() {
     <>
 
       <Router>
-            <Navbar />
-        <Routes>
-          <Route path="/" exact element={<Home />} />
-          <Route path="/hotels" exact element={<Hotels />} />
-          <Route path="/agency" exact element={<Agency />} />
-          <Route path="/events" exact element={<Event />} />
-          <Route path="/package" exact element={<Package />} />
-          <Route path="/register" exact element={<Register />} />
-          <Route path="/forget_password" exact element={<ResetPwd />} />
-          <Route path="/hotel-details/:id" exact element={<DetailsHotel/>} />
-          <Route path="/profile" exact element={<Profile/>} />
-          <Route path="/create-page" exact element={<CreatePageAgency/>} />
-          <Route path="/page/:id" exact element={<DetailsPage/>} />
-          <Route path="/event/:id" exact element={<DetailsEvent/>} />
-          <Route path = "/update-hotel/:id" exact element = {<UpdateHotel/>}/>
-          <Route path = "/update-pack/:id" exact element = {<UpdatePack/>}/>
-          <Route path = "/update-event/:id" exact element = {<UpdateEvent/>}/>
+            {/* <Navbar /> */}
+        <Switch>
+          <CustomRoute path="/" exact component={Home} />
+          <CustomRoute path="/hotels" exact component={Hotels } />
+          <CustomRoute path="/agency" exact component={Agency } />
+          <CustomRoute path="/events" exact component={Event } />
+          <CustomRoute path="/package" exact component={Package } />
+          <PublicRoute path="/register" exact component={Register } />
+          <PublicRoute path="/forget_password" exact component={ResetPwd } />
+          <PrivateRoute path="/hotel-details/:id" exact component={DetailsHotel} />
+          
+          <PrivateRoute path="/profile" exact component={Profile} />
+          <PrivateRoute path="/create-page" exact component={CreatePageAgency} />
+          <PrivateRoute path="/page/:id" exact component={DetailsPage} />
+          <PrivateRoute path="/event/:id" exact component={DetailsEvent} />
+          <PrivateRoute path = "/update-hotel/:id" exact component = {UpdateHotel}/>
+          <PrivateRoute path = "/update-pack/:id" exact component = {UpdatePack}/>
+          <PrivateRoute path = "/update-event/:id" exact component = {UpdateEvent}/>
           {/* <CustomRoute path="/" exact component={<Home />} />
           <CustomRoute path="/hotels" exact component={<Hotels />} />
           <PublicRoute path="/register" exact component={<Register />} />
           <PublicRoute path="/forget_password" exact component={<ResetPwd />} />
           <PrivateRoute path="/hotel-details/:id" exact component={<DetailsHotel/>} /> */}
-        </Routes>
+        </Switch>
       </Router>
     </>
   );
