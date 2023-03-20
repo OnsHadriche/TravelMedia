@@ -10,7 +10,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 
 import dateFormat from "dateformat";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import RemoveModal from "./RemoveModal";
 
 function ListItem({
@@ -23,8 +23,9 @@ function ListItem({
   requestRemove,
   show,
 }) {
-  const navigate = useNavigate()
+  const history = useHistory()
   const dateCreate = dateFormat(date, "mmmm dS, yyyy");
+  const {id} = useParams()
   return (
     <>
       <Card sx={{ display: "flex", width: 300, height: 200 }}>
@@ -47,6 +48,9 @@ function ListItem({
               {dateCreate}
             </Typography>
           </CardContent>
+          {
+            
+          }
           <Box sx={{ display: "flex", alignItems: "center", pl: 1, pb: 1 }}>
             <Link to={linkUpdate}>
             <Button size="small" >

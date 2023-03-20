@@ -24,7 +24,7 @@ function CardDetailsHotel({hotelSelected}) {
       <>
         <div className="d-flex align-items-center row hotelDetailsPrice">
      
-          <h3 className="col-8">{hotelSelected?.title} </h3>
+          <h3 className="col-8">{hotelSelected?.hotel.title} </h3>
         
           {/* <form onSubmit={handleSubmit}> */}
           <button type="submit" className=" col-4">
@@ -43,7 +43,7 @@ function CardDetailsHotel({hotelSelected}) {
     
         <div className="mt-4">
           <p>
-            {hotelSelected?.details}
+            {hotelSelected?.hotel.details}
           </p>
         </div>
         

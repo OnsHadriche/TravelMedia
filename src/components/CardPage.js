@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
@@ -14,10 +14,22 @@ import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import Button from "@mui/material/Button";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { red, indigo } from "@mui/material/colors";
+import { useHistory } from "react-router-dom";
+import Login from "./ModalLogin";
 
 export default function CardPage(props) {
   console.log(typeof props.star);
   const colorLocation = indigo["A700"];
+  const history = useHistory()
+  const [modalShowLogin, setModalShowLogin] = useState(false);
+
+  const handleClicDetails = (id) => {
+    if (props.isAuth) {
+        return history.push(`/page/${id}`);
+    } else {
+      return setModalShowLogin(true);
+    }
+};
 
   return (
     <>
@@ -64,7 +76,7 @@ export default function CardPage(props) {
         </CardContent>
         <CardActions className="justify-content-between ms-2">
           <div>
-            <Button onClick={() => props.handleClickBook(props.id)}>
+            <Button onClick={()=>handleClicDetails(props.id)}>
               Details
             </Button>
             <IconButton aria-label="add to favorites" className="me-4">
@@ -74,6 +86,8 @@ export default function CardPage(props) {
         </CardActions>
       </Card>
       {/* <h1>{hotel.title}</h1> */}
+    <Login show={modalShowLogin} onHide={() => setModalShowLogin(false)} />
+
     </>
   );
 }
