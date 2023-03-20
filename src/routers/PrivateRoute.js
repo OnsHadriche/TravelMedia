@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Navigate,Route } from "react-router-dom";
+import { Redirect,Route } from "react-router-dom";
 import InsideLayout from "../layouts/InsideLayout";
 
 function PrivateRoute({ component: Component, ...rest }) {
@@ -11,7 +11,7 @@ function PrivateRoute({ component: Component, ...rest }) {
           render={(props) => (
               isAuth
                   ? <InsideLayout><Component {...props} /></InsideLayout>
-                  : <Navigate to={{ pathname: '/', state: { from: props.location } }} />
+                  : <Redirect to={{ pathname: '/', state: { from: props.location } }} />
           )}
       />
   )

@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Route, Navigate } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import OutsideLayout from "../layouts/OutsideLayout";
 
 function PublicRoute({ component: Component, ...rest }) {
@@ -10,7 +10,7 @@ function PublicRoute({ component: Component, ...rest }) {
           {...rest}
           render={(props) => (
              isAuth
-              ? <Navigate to={{ pathname: '/', state: { from: props.location } }} />
+              ? <Redirect to={{ pathname: '/', state: { from: props.location } }} />
               : <OutsideLayout><Component {...props} /></OutsideLayout>
           )}
       />
